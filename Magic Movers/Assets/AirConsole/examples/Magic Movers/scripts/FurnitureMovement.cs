@@ -28,10 +28,15 @@ public class FurnitureMovement : MonoBehaviour
     */
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
+        isActiveFurniture = true;
+    }
+
+    public void AssignPositionAndDirection()
+    {
         isPositive = Random.value >= 0.5 ? true : false;
         direction = Random.value >= 0.5 ? Direction.horizontal : Direction.vertical;
 
-        rb2d = GetComponent<Rigidbody2D>();
 
         if (direction == Direction.horizontal)
         {
@@ -43,8 +48,6 @@ public class FurnitureMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, isPositive ? -6 : 6);
             rb2d.velocity = new Vector2(0, speed * (isPositive ? 1 : -1));
         }
-
-        isActiveFurniture = true;
     }
 
     private void Update()

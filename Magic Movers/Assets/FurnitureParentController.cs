@@ -28,10 +28,31 @@ public class FurnitureParentController : MonoBehaviour
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
         currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
         currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
-        mainDirection = Vector2.right;
-        lateralDirection = Vector2.up;
+        currentFurnitureController.AssignPositionAndDirection();
+        mainDirection = currentFurnitureController.GetCurrentVelocity().normalized;
+        lateralDirection = FindLateralDirection(mainDirection);
 
+    }
 
+    private Vector2 FindLateralDirection(Vector2 direction)
+    {
+
+        if (direction == Vector2.left)
+        {
+            return Vector2.up;
+        }
+        else if (direction == Vector2.up)
+        {
+            return Vector2.right;
+        }
+        else if (direction == Vector2.right)
+        {
+            return Vector2.down;
+        }
+        else
+        {
+            return Vector2.left;
+        }
 
     }
 
