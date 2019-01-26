@@ -17,24 +17,30 @@ public class MagicMoversLogic : MonoBehaviour {
 	private int scoreRacketLeft = 0;
 	private int scoreRacketRight = 0;
 
+    private GameObject currentDefender;
+    private GameObject currentAggressor;
+
 	void Awake () {
 		AirConsole.instance.onMessage += OnMessage;
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onDisconnect += OnDisconnect;
 
         furnitureParentController.furniturePlacedCallback = FurniturePlacedCallback;
-	}
+        furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
+        furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
 
-	/// <summary>
-	/// We start the game if 2 players are connected and the game is not already running (activePlayers == null).
-	/// 
-	/// NOTE: We store the controller device_ids of the active players. We do not hardcode player device_ids 1 and 2,
-	///       because the two controllers that are connected can have other device_ids e.g. 3 and 7.
-	///       For more information read: http://developers.airconsole.com/#/guides/device_ids_and_states
-	/// 
-	/// </summary>
-	/// <param name="device_id">The device_id that connected</param>
-	void OnConnect (int device_id) {
+    }
+
+    /// <summary>
+    /// We start the game if 2 players are connected and the game is not already running (activePlayers == null).
+    /// 
+    /// NOTE: We store the controller device_ids of the active players. We do not hardcode player device_ids 1 and 2,
+    ///       because the two controllers that are connected can have other device_ids e.g. 3 and 7.
+    ///       For more information read: http://developers.airconsole.com/#/guides/device_ids_and_states
+    /// 
+    /// </summary>
+    /// <param name="device_id">The device_id that connected</param>
+    void OnConnect (int device_id) {
 		if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0) {
 			if (AirConsole.instance.GetControllerDeviceIds ().Count >= 2) {
 				StartGame ();
@@ -105,7 +111,24 @@ public class MagicMoversLogic : MonoBehaviour {
 
     void FurniturePlacedCallback()
     {
+        if (currentDefender != null && currentAggressor != null)
+        {
+            Destroy(currentDefender);
+            Destroy(currentAggressor);
+        }
         AddFurniture();
+    }
+
+    void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
+    {
+        currentDefender = defender;
+        currentAggressor = aggressor;
+    }
+
+    void HandleFurnitureExitCallback()
+    {
+        currentDefender = null;
+        currentAggressor = null;
     }
 
     void StartGame () {
@@ -144,17 +167,17 @@ public class MagicMoversLogic : MonoBehaviour {
 	void FixedUpdate () {
 
 		// check if ball reached one of the ends
-		if (this.ball.position.x < -9f) {
-			scoreRacketRight++;
-			UpdateScoreUI ();
-			ResetBall (true);
-		}
+		//if (this.ball.position.x < -9f) {
+		//	scoreRacketRight++;
+		//	UpdateScoreUI ();
+		//	ResetBall (true);
+		//}
 
-		if (this.ball.position.x > 9f) {
-			scoreRacketLeft++;
-			UpdateScoreUI ();
-			ResetBall (true);
-		}
+		//if (this.ball.position.x > 9f) {
+		//	scoreRacketLeft++;
+		//	UpdateScoreUI ();
+		//	ResetBall (true);
+		//}
 	}
 
 	void OnDestroy () {

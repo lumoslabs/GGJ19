@@ -12,8 +12,20 @@ public class FurnitureMovement : MonoBehaviour
     public Direction direction;
     private Rigidbody2D rb2d;
 
+    private bool isActiveFurniture = false;
+   
+    public delegate void FurnitureCollidedCallback(GameObject defender, GameObject aggressor);
+    public FurnitureCollidedCallback furnitureCollidedCallback;
 
 
+    public delegate void FurnitureExitedCallback();
+    public FurnitureExitedCallback furnitureExitedCallback;
+
+
+    public void Init()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
     /*
      * TODO: tune up position-placement script to put it at the edges of the 
@@ -21,10 +33,14 @@ public class FurnitureMovement : MonoBehaviour
     */
     public void Start()
     {
+        isActiveFurniture = true;
+    }
+
+    public void AssignPositionAndDirection()
+    {
         isPositive = Random.value >= 0.5 ? true : false;
         direction = Random.value >= 0.5 ? Direction.horizontal : Direction.vertical;
 
-        rb2d = GetComponent<Rigidbody2D>();
 
         if (direction == Direction.horizontal)
         {
@@ -52,12 +68,30 @@ public class FurnitureMovement : MonoBehaviour
 
     public void PlaceFurniture()
     {
+
         rb2d.velocity = new Vector2(0, 0);
 
-
+        isActiveFurniture = false;
 
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger entered!  " + collision.name);
+        if (isActiveFurniture)
+        {
+            furnitureCollidedCallback(collision.gameObject, this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Trigger exited! " + collision.name);
+        if (isActiveFurniture)
+        {
+            furnitureExitedCallback();
+        }
+    }
     public Vector2 GetCurrentVelocity()
     {
         return rb2d.velocity;
@@ -67,5 +101,4 @@ public class FurnitureMovement : MonoBehaviour
     {
         rb2d.velocity = vel;
     }
-
 }

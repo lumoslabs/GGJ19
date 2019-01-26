@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,13 +14,62 @@ public class FurnitureParentController : MonoBehaviour
     public delegate void FurniturePlacedCallback();
     public FurniturePlacedCallback furniturePlacedCallback;
 
+    public delegate void FurnitureCollisionCallback(GameObject defender, GameObject aggressor);
+    public FurnitureCollisionCallback furnitureCollidedCallback;
+
+    public delegate void FurnitureExitCallback();
+    public FurnitureExitCallback furnitureExitCallback;
+
+
     public void AddFurniture()
     {
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
-        currentFurnitureController.Start();
-        lateralDirection = currentFurnitureController.direction == Direction.horizontal ? Vector2.up : Vector2.left;
+        currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
+        currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
+        currentFurnitureController.Init();
+        currentFurnitureController.AssignPositionAndDirection();
+        mainDirection = currentFurnitureController.GetCurrentVelocity().normalized;
+        lateralDirection = FindLateralDirection(mainDirection);
+
+    }
+
+    private Vector2 FindLateralDirection(Vector2 direction)
+    {
+
+        if (direction == Vector2.left)
+        {
+            return Vector2.up;
+        }
+        else if (direction == Vector2.up)
+        {
+            return Vector2.right;
+        }
+        else if (direction == Vector2.right)
+        {
+            return Vector2.down;
+        }
+        else
+        {
+            return Vector2.left;
+        }
+
+    }
+
+    void HandleFurnitureExitedCallback()
+    {
+    }
+
+
+    public void FurnitureCollidedCallback(GameObject defender, GameObject aggressor)
+    {
+        this.furnitureCollidedCallback(defender, aggressor);
+    }
+
+    public void FurnitureExitedCallback()
+    {
+        this.furnitureExitCallback();
     }
 
     public void Place(int playerId)
