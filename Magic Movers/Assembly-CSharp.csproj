@@ -63,6 +63,9 @@
     <Compile Include="Assets\AirConsole\examples\basic\ExampleBasicLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\gamestates\GamestateExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\gyroscope\GyroscopeExampleLogic.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\MagicMoversLogic.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\Furniture.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\FurnitureMovement.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\PlatformerExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\Player_Platformer.cs" />
     <Compile Include="Assets\AirConsole\examples\pong\ExamplePongLogic.cs" />
@@ -225,6 +228,7 @@
     <Compile Include="Assets\AirConsole\scripts\DebugLevel.cs" />
     <Compile Include="Assets\AirConsole\scripts\Settings.cs" />
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
+    <Compile Include="Assets\FurnitureController.cs" />
     <None Include="Assets\AirConsole\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/steveh/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
