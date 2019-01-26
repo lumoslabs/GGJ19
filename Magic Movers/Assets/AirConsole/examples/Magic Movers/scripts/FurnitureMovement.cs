@@ -36,8 +36,8 @@ public class FurnitureMovement : MonoBehaviour
         }
 
         //adding this in just for testing
-        transform.position = new Vector2(-15, 0);
-        rb2d.velocity = new Vector2(speed, 0);
+        //transform.position = new Vector2(-15, 0);
+        //rb2d.velocity = new Vector2(speed, 0);
     }
 
     private void Update()
