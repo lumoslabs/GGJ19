@@ -21,6 +21,8 @@ public class MagicMoversLogic : MonoBehaviour {
 		AirConsole.instance.onMessage += OnMessage;
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onDisconnect += OnDisconnect;
+
+        furnitureParentController.furniturePlacedCallback = FurniturePlacedCallback;
 	}
 
 	/// <summary>
@@ -101,6 +103,10 @@ public class MagicMoversLogic : MonoBehaviour {
 
     }
 
+    void FurniturePlacedCallback()
+    {
+        AddFurniture();
+    }
 
     void StartGame () {
 		AirConsole.instance.SetActivePlayers (2);
