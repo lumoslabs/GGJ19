@@ -13,6 +13,8 @@ public class FurnitureMovement : MonoBehaviour
     private Rigidbody2D rb2d;
 
 
+
+
     /*
      * TODO: tune up position-placement script to put it at the edges of the 
      * screen (or a little past) and move towards the opposite edge of the house
@@ -34,10 +36,6 @@ public class FurnitureMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, isPositive ? -6 : 6);
             rb2d.velocity = new Vector2(0, speed * (isPositive ? 1 : -1));
         }
-
-        //adding this in just for testing
-        //transform.position = new Vector2(-15, 0);
-        //rb2d.velocity = new Vector2(speed, 0);
     }
 
     private void Update()
@@ -55,6 +53,9 @@ public class FurnitureMovement : MonoBehaviour
     public void PlaceFurniture()
     {
         rb2d.velocity = new Vector2(0, 0);
+
+
+
     }
 
     public Vector2 GetCurrentVelocity()

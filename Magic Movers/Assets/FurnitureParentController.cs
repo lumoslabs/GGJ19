@@ -11,6 +11,9 @@ public class FurnitureParentController : MonoBehaviour
     private Vector2 mainDirection;
     private Vector2 lateralDirection;
 
+    public delegate void FurniturePlacedCallback();
+    public FurniturePlacedCallback furniturePlacedCallback;
+
     public void AddFurniture()
     {
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
@@ -25,6 +28,7 @@ public class FurnitureParentController : MonoBehaviour
     public void Place(int playerId)
     {
         currentFurnitureController.PlaceFurniture();
+        furniturePlacedCallback();
     }
 
     public void Move(int playerId, float amt)
