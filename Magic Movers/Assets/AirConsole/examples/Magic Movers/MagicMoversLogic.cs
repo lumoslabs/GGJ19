@@ -17,7 +17,7 @@ public class MagicMoversLogic : MonoBehaviour {
 	private int scoreRacketLeft = 0;
 	private int scoreRacketRight = 0;
 
-    private GameObject currentDefender;
+    private ArrayList currentDefenders;
     private GameObject currentAggressor;
 
 	void Awake () {
@@ -29,6 +29,8 @@ public class MagicMoversLogic : MonoBehaviour {
         furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
         furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
 
+
+        currentDefenders = new ArrayList();
     }
 
     /// <summary>
@@ -111,24 +113,28 @@ public class MagicMoversLogic : MonoBehaviour {
 
     void FurniturePlacedCallback()
     {
-        if (currentDefender != null && currentAggressor != null)
+        if(currentDefenders.Count > 0)
         {
-            Destroy(currentDefender);
+            for(int i = 0; i < currentDefenders.Count; i++)
+            {
+                Destroy(currentDefenders[i] as GameObject);
+            }
             Destroy(currentAggressor);
+            currentDefenders.Clear();
+            currentAggressor = null;
         }
         AddFurniture();
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
     {
-        currentDefender = defender;
+        currentDefenders.Add(defender);
         currentAggressor = aggressor;
     }
 
-    void HandleFurnitureExitCallback()
+    void HandleFurnitureExitCallback(GameObject defender)
     {
-        currentDefender = null;
-        currentAggressor = null;
+        currentDefenders.Remove(defender);
     }
 
     void StartGame () {

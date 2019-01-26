@@ -17,7 +17,7 @@ public class FurnitureParentController : MonoBehaviour
     public delegate void FurnitureCollisionCallback(GameObject defender, GameObject aggressor);
     public FurnitureCollisionCallback furnitureCollidedCallback;
 
-    public delegate void FurnitureExitCallback();
+    public delegate void FurnitureExitCallback(GameObject defender);
     public FurnitureExitCallback furnitureExitCallback;
 
 
@@ -57,8 +57,9 @@ public class FurnitureParentController : MonoBehaviour
 
     }
 
-    void HandleFurnitureExitedCallback()
+    void HandleFurnitureExitedCallback(GameObject defender)
     {
+        this.furnitureExitCallback(defender);
     }
 
 
@@ -67,9 +68,9 @@ public class FurnitureParentController : MonoBehaviour
         this.furnitureCollidedCallback(defender, aggressor);
     }
 
-    public void FurnitureExitedCallback()
+    public void FurnitureExitedCallback(GameObject defender)
     {
-        this.furnitureExitCallback();
+        this.furnitureExitCallback(defender);
     }
 
     public void Place(int playerId)
