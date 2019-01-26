@@ -229,6 +229,7 @@
     <Compile Include="Assets\AirConsole\scripts\Settings.cs" />
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
     <Compile Include="Assets\FurnitureController.cs" />
+    <Compile Include="Assets\FurnitureParentController.cs" />
     <None Include="Assets\AirConsole\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/steveh/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

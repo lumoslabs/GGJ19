@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{0FD6DC01-E4BE-74EC-1EE2-B727C39B2512}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AirConsole/examples/Magic Movers/MagicMoversLogic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FurnitureParentController.cs">
     <Files>
-      <File FileName="Assets/AirConsole/examples/Magic Movers/controller.html" Line="68" Column="7" />
-      <File FileName="Assets/AirConsole/examples/Magic Movers/MagicMoversLogic.cs" Line="81" Column="32" />
-      <File FileName="Assets/FurnitureController.cs" Line="25" Column="2" />
-      <File FileName="Assets/AirConsole/examples/Magic Movers/scripts/FurnitureMovement.cs" Line="45" Column="69" />
-      <File FileName="Assets/AirConsole/examples/basic/controller.html" Line="95" Column="31" />
-      <File FileName="Assets/AirConsole/examples/basic/ExampleBasicLogic.cs" Line="51" Column="16" />
+      <File FileName="Assets/AirConsole/examples/Magic Movers/controller.html" Line="42" Column="12" />
+      <File FileName="Assets/AirConsole/examples/Magic Movers/MagicMoversLogic.cs" Line="96" Column="55" />
+      <File FileName="Assets/FurnitureParentController.cs" Line="21" Column="51" />
+      <File FileName="Assets/AirConsole/examples/Magic Movers/scripts/FurnitureMovement.cs" Line="55" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

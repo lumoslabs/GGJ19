@@ -7,8 +7,7 @@ using Newtonsoft.Json.Linq;
 
 public class MagicMoversLogic : MonoBehaviour {
 
-    public Transform furnitureParent;
-    public GameObject furniturePrefab;
+    public FurnitureParentController furnitureParentController;
 	public Rigidbody2D racketLeft;
 	public Rigidbody2D racketRight;
 	public Rigidbody2D ball;
@@ -71,38 +70,31 @@ public class MagicMoversLogic : MonoBehaviour {
 
             //if someone has pressed PLACE
             if ((bool) data["place"] == true)
-            {
-                //check which player it was
-                if (active_player == 0)
-                {
-                    Debug.Log("Player 1: PLACED");
-                    //this.racketLeft.velocity = Vector3.up * (float)data["move"];
-                }
-                if (active_player == 1)
-                {
-                    Debug.Log("Player 2: PLACED");
-                    //this.racketRight.velocity = Vector3.up * (float)data["move"];
-                }
+            { 
+                PlayerPlaced(active_player);
             }
 
             //if someone has pressed MOVE
             else
-            {
-                if (active_player == 0)
-                {
-                    Debug.Log("Player 1: MOVE " + (int)data["move"]);
-                    //this.racketLeft.velocity = Vector3.up * (float)data["move"];
-                }
-                if (active_player == 1)
-                {
-                    Debug.Log("Player 2: MOVE" + (int)data["move"] * -1);
-                    //this.racketRight.velocity = Vector3.up * (float)data["move"];
-                }
+            { 
+                PlayerMoved(active_player, (float)data["move"]);
             }
 
 
 		}
 	}
+
+    void PlayerPlaced(int playerId)
+    {
+        Debug.Log("Placed: Player " + playerId);
+        furnitureParentController.Place(playerId);
+    }
+
+    void PlayerMoved(int playerId, float amt)
+    {
+        Debug.Log("Moved: Player " + playerId + ", Amt " + amt);
+        furnitureParentController.Move(playerId, amt);
+    }
 
     void SetMoveSpeed(int direction)
     {
@@ -121,8 +113,7 @@ public class MagicMoversLogic : MonoBehaviour {
 
     void AddFurniture()
     {
-        GameObject furnitureObj = Instantiate(furniturePrefab, furnitureParent);
-        furnitureObj.transform.localPosition = Vector3.zero;
+        furnitureParentController.AddFurniture();
     }
 
     void ResetBall (bool move) {

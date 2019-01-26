@@ -54,6 +54,17 @@ public class FurnitureMovement : MonoBehaviour
 
     public void PlaceFurniture()
     {
-        rb2d.velocity = new Vector2(0,0);
+        rb2d.velocity = new Vector2(0, 0);
     }
+
+    public Vector2 GetCurrentVelocity()
+    {
+        return rb2d.velocity;
+    }
+
+    public void SetVelocity(Vector2 vel)
+    {
+        rb2d.velocity = vel;
+    }
+
 }
