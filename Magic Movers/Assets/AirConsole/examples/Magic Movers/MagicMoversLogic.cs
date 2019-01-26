@@ -19,6 +19,7 @@ public class MagicMoversLogic : MonoBehaviour {
 
     private ArrayList currentDefenders;
     private GameObject currentAggressor;
+    public StrikeController strikeController;
 
 	void Awake () {
 		AirConsole.instance.onMessage += OnMessage;
@@ -122,8 +123,40 @@ public class MagicMoversLogic : MonoBehaviour {
             Destroy(currentAggressor);
             currentDefenders.Clear();
             currentAggressor = null;
+
+            GiveStrike();
         }
+        else
+        {
+            StartCoroutine(AddFurnitureAfterDelay());
+        }
+
+    }
+
+    IEnumerator AddFurnitureAfterDelay()
+    {
+        yield return new WaitForSeconds(2);
         AddFurniture();
+    }
+
+    private void GiveStrike()
+    {
+        bool shouldEndGame = strikeController.GiveStrike();
+        if (shouldEndGame)
+        {
+            EndGame();
+        }
+        else
+        {
+            StartCoroutine(AddFurnitureAfterDelay());
+        }
+
+
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("GAMEOVER");
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
