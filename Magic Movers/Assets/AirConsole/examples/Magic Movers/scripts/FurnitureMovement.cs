@@ -9,7 +9,7 @@ public class FurnitureMovement : MonoBehaviour
 {
     [Range(0, 10)] public float speed = 5;
     public bool isPositive;
-    public Direction direction = Direction.horizontal;
+    public Direction direction;
     private Rigidbody2D rb2d;
 
     private bool isActiveFurniture = false;
@@ -22,13 +22,17 @@ public class FurnitureMovement : MonoBehaviour
     public FurnitureExitedCallback furnitureExitedCallback;
 
 
+    public void Init()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
     /*
      * TODO: tune up position-placement script to put it at the edges of the 
      * screen (or a little past) and move towards the opposite edge of the house
     */
-    void Start()
+    public void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         isActiveFurniture = true;
     }
 
@@ -45,7 +49,7 @@ public class FurnitureMovement : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, isPositive ? -6 : 6);
+            transform.position = new Vector3(transform.position.x, isPositive ? -3 : 3);
             rb2d.velocity = new Vector2(0, speed * (isPositive ? 1 : -1));
         }
     }

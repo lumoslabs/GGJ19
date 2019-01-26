@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +28,7 @@ public class FurnitureParentController : MonoBehaviour
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
         currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
         currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
+        currentFurnitureController.Init();
         currentFurnitureController.AssignPositionAndDirection();
         mainDirection = currentFurnitureController.GetCurrentVelocity().normalized;
         lateralDirection = FindLateralDirection(mainDirection);
@@ -81,16 +82,22 @@ public class FurnitureParentController : MonoBehaviour
     {
         if (amt == 0)
         {
-            currentFurnitureController.SetVelocity(mainDirection);
+            if (currentFurnitureController.direction == Direction.horizontal)
+            {
+                currentFurnitureController.SetVelocity(new Vector2(currentFurnitureController.GetCurrentVelocity().x, 0));
+            }
+            else
+            {
+                currentFurnitureController.SetVelocity(new Vector2(0, currentFurnitureController.GetCurrentVelocity().y));
+            }
         }
-
         else if (playerId == 0)
         {
-            currentFurnitureController.SetVelocity(mainDirection + lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection);
         }
         else if (playerId == 1)
         {
-            currentFurnitureController.SetVelocity(mainDirection - lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection);
         }
     }
 }
