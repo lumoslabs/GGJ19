@@ -12,7 +12,14 @@ public class FurnitureMovement : MonoBehaviour
     public Direction direction = Direction.horizontal;
     private Rigidbody2D rb2d;
 
+    private bool isActiveFurniture = false;
+   
+    public delegate void FurnitureCollidedCallback(GameObject defender, GameObject aggressor);
+    public FurnitureCollidedCallback furnitureCollidedCallback;
 
+
+    public delegate void FurnitureExitedCallback();
+    public FurnitureExitedCallback furnitureExitedCallback;
 
 
     /*
@@ -36,6 +43,8 @@ public class FurnitureMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, isPositive ? -6 : 6);
             rb2d.velocity = new Vector2(0, speed * (isPositive ? 1 : -1));
         }
+
+        isActiveFurniture = true;
     }
 
     private void Update()
@@ -52,12 +61,30 @@ public class FurnitureMovement : MonoBehaviour
 
     public void PlaceFurniture()
     {
+
         rb2d.velocity = new Vector2(0, 0);
 
-
+        isActiveFurniture = false;
 
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger entered!  " + collision.name);
+        if (isActiveFurniture)
+        {
+            furnitureCollidedCallback(collision.gameObject, this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Trigger exited! " + collision.name);
+        if (isActiveFurniture)
+        {
+            furnitureExitedCallback();
+        }
+    }
     public Vector2 GetCurrentVelocity()
     {
         return rb2d.velocity;
@@ -67,5 +94,4 @@ public class FurnitureMovement : MonoBehaviour
     {
         rb2d.velocity = vel;
     }
-
 }

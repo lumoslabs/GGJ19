@@ -14,15 +14,40 @@ public class FurnitureParentController : MonoBehaviour
     public delegate void FurniturePlacedCallback();
     public FurniturePlacedCallback furniturePlacedCallback;
 
+    public delegate void FurnitureCollisionCallback(GameObject defender, GameObject aggressor);
+    public FurnitureCollisionCallback furnitureCollidedCallback;
+
+    public delegate void FurnitureExitCallback();
+    public FurnitureExitCallback furnitureExitCallback;
+
+
     public void AddFurniture()
     {
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
+        currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
+        currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
         mainDirection = Vector2.right;
         lateralDirection = Vector2.up;
 
 
+
+    }
+
+    void HandleFurnitureExitedCallback()
+    {
+    }
+
+
+    public void FurnitureCollidedCallback(GameObject defender, GameObject aggressor)
+    {
+        this.furnitureCollidedCallback(defender, aggressor);
+    }
+
+    public void FurnitureExitedCallback()
+    {
+        this.furnitureExitCallback();
     }
 
     public void Place(int playerId)
