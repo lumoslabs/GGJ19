@@ -16,10 +16,8 @@ public class FurnitureParentController : MonoBehaviour
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
-        mainDirection = Vector2.right;
-        lateralDirection = Vector2.up;
-
-
+        currentFurnitureController.Start();
+        lateralDirection = currentFurnitureController.direction == Direction.horizontal ? Vector2.up : Vector2.left;
     }
 
     public void Place(int playerId)
@@ -31,16 +29,22 @@ public class FurnitureParentController : MonoBehaviour
     {
         if (amt == 0)
         {
-            currentFurnitureController.SetVelocity(mainDirection);
+            if (currentFurnitureController.direction == Direction.horizontal)
+            {
+                currentFurnitureController.SetVelocity(new Vector2(currentFurnitureController.GetCurrentVelocity().x, 0));
+            }
+            else
+            {
+                currentFurnitureController.SetVelocity(new Vector2(0, currentFurnitureController.GetCurrentVelocity().y));
+            }
         }
-
         else if (playerId == 0)
         {
-            currentFurnitureController.SetVelocity(mainDirection + lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection);
         }
         else if (playerId == 1)
         {
-            currentFurnitureController.SetVelocity(mainDirection - lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection);
         }
     }
 }
