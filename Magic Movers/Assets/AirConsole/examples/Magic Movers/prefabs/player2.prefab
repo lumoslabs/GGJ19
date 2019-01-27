@@ -126,7 +126,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.6
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f2f901096b8154ba6942fd43996ccb5d, type: 3}
-  - {fileID: 8300000, guid: ba3231c6d11b94fbe8e0cad88b5d47c5, type: 3}
-  - {fileID: 8300000, guid: d3030bc276e124a7b9029ea52c503af7, type: 3}
-  - {fileID: 8300000, guid: 88930dcf30c504288a2182b4f907f5bd, type: 3}
-  - {fileID: 8300000, guid: 290c327e63270465081191e6c07a1fb1, type: 3}
-  - {fileID: 8300000, guid: d9b60de241f7b4e7cb01fab0374f391d, type: 3}
-  - {fileID: 8300000, guid: 5ab6f9abf711a44508006bcace5a302c, type: 3}
+  - {fileID: 8300000, guid: 33b22b5067e9b46328b02163d26e62e6, type: 3}
+  - {fileID: 8300000, guid: ad47989a5aa9a4afab52d28123c4494c, type: 3}
+  - {fileID: 8300000, guid: 62438961a2d6d45a288d4b26b0ac028d, type: 3}
+  - {fileID: 8300000, guid: a68a95d3984ed4eb29b8e96e085c5187, type: 3}
+  - {fileID: 8300000, guid: ab408be541b8743ceb81f6e7860f595f, type: 3}
+  - {fileID: 8300000, guid: 47e41301d4bac4fe29fad3a2e4e782e6, type: 3}
+  - {fileID: 8300000, guid: 552a13e1b216a45bf92f3abd35154de9, type: 3}
   - {fileID: 8300000, guid: 81864285543fa433d817e6cbdca0c878, type: 3}
 --- !u!82 &1223134309740306260
 AudioSource:
