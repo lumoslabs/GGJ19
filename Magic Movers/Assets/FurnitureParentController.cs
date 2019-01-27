@@ -29,15 +29,21 @@ public class FurnitureParentController : MonoBehaviour
     public delegate void FurnitureExitCallback(GameObject defender);
     public FurnitureExitCallback furnitureExitCallback;
 
+    private AudioSource audio;
+    private FurnitureClipHolder clipHolder;
 
     private void Start()
     {
         HideArrows();
+        audio = GetComponent<AudioSource>();
+        clipHolder = GetComponent<FurnitureClipHolder>();
     }
 
     public void AddFurniture()
     {
         furniturePrefab = (GameObject)furniturePrefabs.GetValue(Random.Range(0, furniturePrefabs.Length));
+        audio.clip = clipHolder.RandomSpawnClip();
+        audio.Play();
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();

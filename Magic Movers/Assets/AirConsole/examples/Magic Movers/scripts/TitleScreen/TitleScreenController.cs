@@ -13,7 +13,8 @@ public class TitleScreenController : MonoBehaviour
     private float startTime;
     private float distance;
 
-    public GameObject layout;
+    public GameObject titleScreen;
+    public GameObject rulesScreen;
     private RectTransform rectTransform;
 
     private bool playPressed = false;
@@ -21,27 +22,31 @@ public class TitleScreenController : MonoBehaviour
 
     public void Start()
     {
-        rectTransform = layout.GetComponent<RectTransform>();
+        titleScreen.SetActive(true);
+        rulesScreen.SetActive(false);
+        //rectTransform = layout.GetComponent<RectTransform>();
     }
 
     public void Play()
     {
-        if (!playPressed)
+        if (pageNum == 0)
         {
-            start = new Vector3(rectTransform.position.x, rectTransform.position.y, 0);
-            endActual += endY;
-            end = new Vector3(rectTransform.position.x, endActual, 0);
-
-            startTime = Time.time;
-            distance = Vector3.Distance(start, end);
-            playPressed = true;
+            titleScreen.SetActive(false);
+            rulesScreen.SetActive(true);
         }
+        if (pageNum == 1)
+        {
+            rulesScreen.SetActive(false);
+        }   
+        pageNum++;
+
     }
 
     private void Update()
     {
         if (playPressed)
         {
+
             float distCovered = (Time.time - startTime) * speed;
             float fracJourney = distCovered / distance;
             rectTransform.position = Vector3.Lerp(start, end, fracJourney);
