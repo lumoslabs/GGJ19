@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
-    <object class="AudioFile" id="{562facae-0170-45b5-a226-21d64283de3e}">
+    <object class="AudioFile" id="{20bafae5-8125-48b0-bac1-8d148ce7d85f}">
         <property name="assetPath">
-            <value>SFX/magicmovers_gameloop_v1_end.wav</value>
-        </property>
-        <property name="isStreaming">
-            <value>true</value>
+            <value>sfx_magic_lp4.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
@@ -14,7 +11,7 @@
             <value>2</value>
         </property>
         <property name="length">
-            <value>11.882630385487529</value>
+            <value>1.1356235827664398</value>
         </property>
         <relationship name="masterAssetFolder">
             <destination>{b5af9590-230f-4a9b-a791-cdab39494708}</destination>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{ef0c80db-0f47-45a9-92e6-daf79e2104f1}">
+        <property name="name">
+            <value>playMagic2</value>
+        </property>
+        <relationship name="folder">
+            <destination>{753d6dbe-98ab-49a8-a0c6-777054142a34}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{eeb1d8d4-fc4a-40f0-9028-c632d7d7ea78}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{eeb1d8d4-fc4a-40f0-9028-c632d7d7ea78}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>
