@@ -13,7 +13,8 @@ public class MagicMoversLogic : MonoBehaviour {
     public GameObject replayText;
 
     public Camera camera;
-    private StudioEventEmitter emitter;
+    private AudioSource audio;
+    private AudioClipHolder clipHolder;
 
 	public float ballSpeed = 10f;
 	public Text uiText;
@@ -39,7 +40,8 @@ public class MagicMoversLogic : MonoBehaviour {
         furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
         furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
 
-        emitter = camera.GetComponent<StudioEventEmitter>();
+        audio = camera.GetComponent<AudioSource>();
+        clipHolder = camera.GetComponent<AudioClipHolder>();
 
         currentDefenders = new ArrayList();
         placedFurnitureList = new ArrayList();
@@ -134,8 +136,10 @@ public class MagicMoversLogic : MonoBehaviour {
     {
         DisableInput();
         strikeController.RestartGame();
-        emitter.SetParameter("gameEnd", 0);
-        emitter.Play();
+
+        audio.clip = clipHolder.clips[0];
+        audio.loop = true;
+        audio.Play();
 
         replayText.SetActive(false);
         for (int i = 0; i < placedFurnitureList.Count; i++)
@@ -229,7 +233,9 @@ public class MagicMoversLogic : MonoBehaviour {
         Debug.Log("GAMEOVER");
         gameOver = true;
         replayText.SetActive(true);
-        emitter.SetParameter("gameEnd", 1);
+        audio.clip = clipHolder.clips[1];
+        audio.loop = false;
+        audio.Play();
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)

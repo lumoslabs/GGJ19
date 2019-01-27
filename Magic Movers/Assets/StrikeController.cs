@@ -8,18 +8,21 @@ public class StrikeController : MonoBehaviour
     public GameObject[] spriteList;
     private int currentStrikes;
 
-    private StudioEventEmitter emitter;
+    private AudioSource audio;
+    private AudioClipHolder clipHolder;
 
     void Start()
     {
         currentStrikes = 0;
-        emitter = GetComponent<StudioEventEmitter>();
+        audio = GetComponent<AudioSource>();
+        clipHolder = GetComponent<AudioClipHolder>();
     }
 
 
     public bool GiveStrike()
     {
-        emitter.Play();
+        audio.clip = clipHolder.RandomAudio();
+        audio.Play();
         currentStrikes++;
         spriteList[currentStrikes - 1].SetActive(true);
         if (currentStrikes == 3)
