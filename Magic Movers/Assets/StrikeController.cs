@@ -13,6 +13,7 @@ public class StrikeController : MonoBehaviour
         
     }
 
+
     public bool GiveStrike()
     {
 

@@ -97,11 +97,11 @@ public class FurnitureParentController : MonoBehaviour
         }
         else if (playerId == 0)
         {
-            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection * currentFurnitureController.speed);
         }
         else if (playerId == 1)
         {
-            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection);
+            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection * currentFurnitureController.speed);
         }
     }
 }

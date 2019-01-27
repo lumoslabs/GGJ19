@@ -41,7 +41,7 @@ public class FurnitureMovement : MonoBehaviour
         int[] angles = new int[] { 0, 90, 180, 270 };
         isPositive = Random.value >= 0.5 ? true : false;
         direction = Random.value >= 0.5 ? Direction.horizontal : Direction.vertical;
-        speed = Random.Range(7, 10);
+        speed = Random.Range(5, 6);
         transform.rotation = Quaternion.Euler(0, 0, angles[Random.Range(0, angles.Length)]);
 
         if (direction == Direction.horizontal)
