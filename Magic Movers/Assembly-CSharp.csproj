@@ -231,6 +231,7 @@
     <Compile Include="Assets\AirConsole\scripts\DebugLevel.cs" />
     <Compile Include="Assets\AirConsole\scripts\Settings.cs" />
     <Compile Include="Assets\AirConsole\scripts\WebsocketListener.cs" />
+    <Compile Include="Assets\FurnitureAnimationController.cs" />
     <Compile Include="Assets\FurnitureController.cs" />
     <Compile Include="Assets\FurnitureParentController.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Audio\FmodGvrAudio.cs" />

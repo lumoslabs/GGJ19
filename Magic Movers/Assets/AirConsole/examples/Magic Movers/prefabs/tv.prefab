@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 6367995814436427737}
   - component: {fileID: 7952194487117944425}
   - component: {fileID: 4316069686934726148}
+  - component: {fileID: 4878527387052231764}
   m_Layer: 0
   m_Name: tv
   m_TagString: Untagged
@@ -521,6 +522,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4878527387052231764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691271716861477931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f58f37f929d4101b7cd813a4d52339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinedColor: {r: 0.3808874, g: 0.15508187, b: 0.8018868, a: 0.29803923}
+  blueColor: {r: 0.2392157, g: 0.26666668, b: 0.6431373, a: 1}
+  redColor: {r: 0.64705884, g: 0.19607845, b: 0.19607845, a: 1}
+  outline: {fileID: 752453676681643827}
+  blorb: {fileID: 7687674421126837227}
 --- !u!1 &5386315456779910358
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +608,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bebf7ded94803449ab8dfb56c68ab4ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

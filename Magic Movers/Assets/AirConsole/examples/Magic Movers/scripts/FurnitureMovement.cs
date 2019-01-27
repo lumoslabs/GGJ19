@@ -68,6 +68,8 @@ public class FurnitureMovement : MonoBehaviour
         }
     }
 
+
+
     public GameObject PlaceFurniture()
     {
 
@@ -105,4 +107,10 @@ public class FurnitureMovement : MonoBehaviour
     {
         rb2d.velocity = vel;
     }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+     }
+
 }
