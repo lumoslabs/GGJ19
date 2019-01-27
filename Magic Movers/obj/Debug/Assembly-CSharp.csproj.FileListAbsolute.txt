@@ -371,3 +371,4 @@
 /Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.dll
 /Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.dll.mdb
 /Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.xml
+/Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEngine.WebGLModule.dll
