@@ -71,6 +71,7 @@
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\MusicTest.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\TitleScreen\TitleScreenController.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\TitleScreen\TitleTextController.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\WizardAudio.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\PlatformerExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\Player_Platformer.cs" />
     <Compile Include="Assets\AirConsole\examples\pong\ExamplePongLogic.cs" />
