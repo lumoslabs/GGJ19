@@ -64,7 +64,9 @@
     <Compile Include="Assets\AirConsole\examples\gamestates\GamestateExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\gyroscope\GyroscopeExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\MagicMoversLogic.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\AudioClipHolder.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\Furniture.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\FurnitureClipHolder.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\FurnitureMovement.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\MusicTest.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\TitleScreen\TitleScreenController.cs" />

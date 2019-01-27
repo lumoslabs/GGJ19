@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 6367995814436427737}
   - component: {fileID: 7952194487117944425}
   - component: {fileID: 6908895229206339392}
+  - component: {fileID: 688450673942383810}
   m_Layer: 0
   m_Name: stool
   m_TagString: Untagged
@@ -574,6 +575,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &688450673942383810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691271716861477931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f58f37f929d4101b7cd813a4d52339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinedColor: {r: 0.3808874, g: 0.15508187, b: 0.8018868, a: 0.29803923}
+  blueColor: {r: 0.2392157, g: 0.26666668, b: 0.6431373, a: 1}
+  redColor: {r: 0.64705884, g: 0.19607845, b: 0.19607845, a: 1}
+  outline: {fileID: 6462960921298246141}
+  blorb: {fileID: 2473702646122037702}
 --- !u!1 &5887203752707246090
 GameObject:
   m_ObjectHideFlags: 0
