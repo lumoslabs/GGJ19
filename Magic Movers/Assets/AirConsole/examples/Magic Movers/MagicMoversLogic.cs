@@ -11,6 +11,8 @@ public class MagicMoversLogic : MonoBehaviour {
 
     public FurnitureParentController furnitureParentController;
     public GameObject replayText;
+    public WizardAnimatorController wiz1;
+    public WizardAnimatorController wiz2;
 
     public Camera camera;
     private StudioEventEmitter emitter;
@@ -44,6 +46,12 @@ public class MagicMoversLogic : MonoBehaviour {
         currentDefenders = new ArrayList();
         placedFurnitureList = new ArrayList();
         gameOver = false;
+    }
+
+    private void Start()
+    {
+        wiz1.PlayWalk();
+        wiz2.PlayWalk();
     }
 
     /// <summary>
@@ -137,6 +145,9 @@ public class MagicMoversLogic : MonoBehaviour {
         emitter.SetParameter("gameEnd", 0);
         emitter.Play();
 
+        wiz1.PlayWalk();
+        wiz2.PlayWalk();
+
         replayText.SetActive(false);
         for (int i = 0; i < placedFurnitureList.Count; i++)
         {
@@ -152,12 +163,43 @@ public class MagicMoversLogic : MonoBehaviour {
         Debug.Log("Placed: Player " + playerId);
         GameObject furnitureObj =  furnitureParentController.Place(playerId);
         placedFurnitureList.Add(furnitureObj);
+        if(playerId == 0)
+        {
+            wiz2.PlayWin();
+        }
+        else
+        {
+            wiz1.PlayWin();
+        }
+
     }
 
     void PlayerMoved(int playerId, float amt)
     {
         Debug.Log("Moved: Player " + playerId + ", Amt " + amt);
         furnitureParentController.Move(playerId, amt);
+        if(playerId == 0)
+        {
+            if (amt > 0)
+            {
+                wiz2.PlayPull();
+            }
+            else
+            {
+                wiz2.PlayFloat();
+            }
+        }
+        else
+        {
+            if (amt > 0)
+            {
+                wiz1.PlayPull();
+            }
+            else
+            {
+                wiz1.PlayFloat();
+            }
+        }
     }
 
     void SetMoveSpeed(int direction)
@@ -230,6 +272,8 @@ public class MagicMoversLogic : MonoBehaviour {
         gameOver = true;
         replayText.SetActive(true);
         emitter.SetParameter("gameEnd", 1);
+        wiz1.PlayLose();
+        wiz2.PlayLose();
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
@@ -255,7 +299,9 @@ public class MagicMoversLogic : MonoBehaviour {
 		AirConsole.instance.SetActivePlayers (2);
         AddFurniture();
 		UpdateScoreUI ();
-	}
+        wiz1.PlayFloat();
+        wiz2.PlayFloat();
+    }
 
     void AddFurniture()
     {
@@ -281,6 +327,7 @@ public class MagicMoversLogic : MonoBehaviour {
         if (titleScreenController.TitleFinished() && !gameStarted)
         {
             StartGame();
+
         }
     }
 #endif
