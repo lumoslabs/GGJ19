@@ -118,7 +118,10 @@ public class MagicMoversLogic : MonoBehaviour {
         {
             for(int i = 0; i < currentDefenders.Count; i++)
             {
-                Destroy(currentDefenders[i] as GameObject);
+                if ((currentDefenders[i] as GameObject).tag == "Furniture")
+                {
+                    Destroy(currentDefenders[i] as GameObject);
+                }
             }
             Destroy(currentAggressor);
             currentDefenders.Clear();
