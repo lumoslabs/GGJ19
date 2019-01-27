@@ -189,12 +189,12 @@ public class MagicMoversLogic : MonoBehaviour {
             if (amt > 0)
             {
                 wiz2.PlayPull();
-                wizardAudio.player2Audio.volume = 1;
+                wizardAudio.player2magic.volume = 1;
             }
             else
             {
                 wiz2.PlayFloat();
-                wizardAudio.player2Audio.volume = 0;
+                wizardAudio.player2magic.volume = 0;
             }
         }
         else
@@ -202,12 +202,12 @@ public class MagicMoversLogic : MonoBehaviour {
             if (amt > 0)
             {
                 wiz1.PlayPull();
-                wizardAudio.player1Audio.volume = 1;
+                wizardAudio.player1magic.volume = 1;
             }
             else
             {
                 wiz1.PlayFloat();
-                wizardAudio.player1Audio.volume = 0;
+                wizardAudio.player1magic.volume = 0;
             }
         }
     }
@@ -235,6 +235,23 @@ public class MagicMoversLogic : MonoBehaviour {
         DisableInput();
         yield return new WaitForSeconds(2);
         AddFurniture();
+
+        //if (lastPlayerId == 1)
+        //{
+        //    wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[wizardAudio.clips1.clips.Length - 1];
+        //    wizardAudio.player1Audio.loop = true;
+        //    wizardAudio.player1Audio.volume = 1;
+        //    wizardAudio.player1Audio.Play();
+        //}
+        //else
+        //{
+        //    wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[wizardAudio.clips2.clips.Length - 1];
+        //    wizardAudio.player2Audio.loop = true;
+        //    wizardAudio.player2Audio.volume = 1;
+        //    wizardAudio.player2Audio.Play();
+        //}
+
+        lastPlayerId = 0;
     }
 
     public void DisableInput()
@@ -260,11 +277,20 @@ public class MagicMoversLogic : MonoBehaviour {
         currentDefenders.Clear();
         currentAggressor = null;
 
-        wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[0];
-        wizardAudio.player1Audio.loop = false;
-        wizardAudio.player1Audio.volume = 1;
-        wizardAudio.player1Audio.Play();
-        lastPlayerId = 0;
+        if (lastPlayerId == 1)
+        {
+            wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[Random.Range(0, wizardAudio.clips1.clips.Length - 2)];
+            wizardAudio.player1Audio.loop = false;
+            wizardAudio.player1Audio.volume = 1;
+            wizardAudio.player1Audio.Play();
+        }
+        else
+        {
+            wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[Random.Range(0, wizardAudio.clips2.clips.Length - 2)];
+            wizardAudio.player2Audio.loop = false;
+            wizardAudio.player2Audio.volume = 1;
+            wizardAudio.player2Audio.Play();
+        }
 
         GiveStrike();
     }
