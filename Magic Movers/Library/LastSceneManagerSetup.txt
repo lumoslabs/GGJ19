@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/AirConsole/examples/Magic Movers/scenes/TitleScreen.unity
+- path: Assets/AirConsole/examples/Magic Movers/magicMovers.unity
   isLoaded: 1
   isActive: 1

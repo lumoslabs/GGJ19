@@ -239,6 +239,7 @@
     <Compile Include="Assets\ResonanceAudio\Scripts\FmodResonanceAudio.cs" />
     <Compile Include="Assets\ResonanceAudio\Scripts\FmodResonanceAudioRoom.cs" />
     <Compile Include="Assets\StrikeController.cs" />
+    <Compile Include="Assets\WizardAnimatorController.cs" />
     <None Include="Assets\AirConsole\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/steveh/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
