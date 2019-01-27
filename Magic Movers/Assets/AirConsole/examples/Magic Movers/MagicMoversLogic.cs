@@ -260,8 +260,9 @@ public class MagicMoversLogic : MonoBehaviour {
         currentDefenders.Clear();
         currentAggressor = null;
 
-        wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[Random.Range(0, wizardAudio.clips1.clips.Length - 1)];
+        wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[0];
         wizardAudio.player1Audio.loop = false;
+        wizardAudio.player1Audio.volume = 1;
         wizardAudio.player1Audio.Play();
         lastPlayerId = 0;
 
