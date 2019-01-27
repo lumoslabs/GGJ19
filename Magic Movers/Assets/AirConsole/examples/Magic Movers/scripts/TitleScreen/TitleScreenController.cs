@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class TitleScreenController : MonoBehaviour
     private RectTransform rectTransform;
 
     private bool playPressed = false;
+    private int pageNum = 0;
 
     public void Start()
     {
@@ -48,7 +50,15 @@ public class TitleScreenController : MonoBehaviour
             float distCovered = (Time.time - startTime) * speed;
             float fracJourney = distCovered / distance;
             rectTransform.position = Vector3.Lerp(start, end, fracJourney);
-            if (fracJourney >= 1) { playPressed = false; }
+            if (fracJourney >= 1) {
+                playPressed = false;
+                pageNum++;
+            }
+        }
+
+        if (pageNum >= 2)
+        {
+            SceneManager.LoadScene(sceneName: "magicMovers");
         }
     }
 }
