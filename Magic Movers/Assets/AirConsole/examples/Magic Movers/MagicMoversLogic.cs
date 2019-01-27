@@ -36,6 +36,8 @@ public class MagicMoversLogic : MonoBehaviour {
     private int lastPlayerId;
 
 	void Awake () {
+        GetComponent<AudioSource>().Play();
+
 		AirConsole.instance.onMessage += OnMessage;
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onDisconnect += OnDisconnect;
