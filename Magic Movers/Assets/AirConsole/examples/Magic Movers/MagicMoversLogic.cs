@@ -369,7 +369,7 @@ public class MagicMoversLogic : MonoBehaviour {
 
 	void UpdateScoreUI () {
 		// update text canvas
-		uiText.text = scoreRacketLeft + ":" + scoreRacketRight;
+		uiText.text = "";
 	}
 
 	void OnDestroy () {
