@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FurnitureParentController : MonoBehaviour
 {
-    public GameObject furniturePrefab;
+    public GameObject[] furniturePrefabs;
+    private GameObject furniturePrefab;
     private GameObject currentFurnitureObj;
     private FurnitureMovement currentFurnitureController;
 
@@ -23,6 +24,7 @@ public class FurnitureParentController : MonoBehaviour
 
     public void AddFurniture()
     {
+        furniturePrefab = (GameObject)furniturePrefabs.GetValue(Random.Range(0, furniturePrefabs.Length));
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();

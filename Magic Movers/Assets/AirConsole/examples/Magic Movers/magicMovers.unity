@@ -2074,5 +2074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a6b90dfaf6a4050a7cfdcec0cef930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furniturePrefab: {fileID: 4691271716861477931, guid: e88532213415b435a8816f727c6e3020,
-    type: 3}
+  furniturePrefabs:
+  - {fileID: 4691271716861477931, guid: 0499094774c184c6681b272d043cba38, type: 3}
+  - {fileID: 4691271716861477931, guid: 575b9767f8b034c4396c351073811d75, type: 3}
+  - {fileID: 4691271716861477931, guid: 43e16e5cf29f043eab4ba943685013e4, type: 3}
