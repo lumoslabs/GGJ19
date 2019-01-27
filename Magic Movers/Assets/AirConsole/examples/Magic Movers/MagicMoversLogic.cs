@@ -251,12 +251,21 @@ public class MagicMoversLogic : MonoBehaviour {
     {
         for (int i = 0; i < currentDefenders.Count; i++)
         {
-            if ((currentDefenders[i] as GameObject).tag == "Furniture")
+            if ((currentDefenders[i] as GameObject).tag == "Furniture") 
             {
-                Destroy(currentDefenders[i] as GameObject);
+                GameObject item = currentDefenders[i] as GameObject;
+                //that object plays break animation
+                item.GetComponent<FurnitureAnimationController>().PlayBreak();
+                //turns tag to "grass"
+                item.tag = "Grass";
+                //Destroy(currentDefenders[i] as GameObject);
             }
         }
-        Destroy(currentAggressor);
+        //Destroy(currentAggressor);
+
+        currentAggressor.GetComponent<FurnitureAnimationController>().PlayBreak();
+
+
         currentDefenders.Clear();
         currentAggressor = null;
 

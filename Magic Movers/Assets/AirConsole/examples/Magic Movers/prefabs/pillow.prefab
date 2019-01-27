@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 7685684249123618541}
   m_Layer: 0
   m_Name: pillow
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -476,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &274185040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1231,6 +1231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f626180d9e141c8bf913b9772a13b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 62324457}
+  player2: {fileID: 663894288}
+  player1Audio: {fileID: 0}
+  player2Audio: {fileID: 0}
+  clips1: {fileID: 0}
+  clips2: {fileID: 0}
 --- !u!4 &773628021
 Transform:
   m_ObjectHideFlags: 0
@@ -1671,7 +1677,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <color=purple>Press any button on your phone to continue</color>
+  m_Text: <color=white>Press any button on your phone to continue</color>
 --- !u!222 &879608838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2005,7 +2011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1344949527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2249,7 +2255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2257,7 +2263,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9924d9891e354815a7dbcce85a086ad, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -2292,10 +2298,10 @@ RectTransform:
   m_Father: {fileID: 435934142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 158}
-  m_SizeDelta: {x: 357, y: 121}
+  m_AnchorMin: {x: 0.27750003, y: 0.73183334}
+  m_AnchorMax: {x: 0.72249997, y: 0.91344446}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1577982962
 GameObject:
@@ -3358,7 +3364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2079473102
 RectTransform:
   m_ObjectHideFlags: 0

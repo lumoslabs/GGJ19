@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 2057333254115333543}
   m_Layer: 0
   m_Name: desk one
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
