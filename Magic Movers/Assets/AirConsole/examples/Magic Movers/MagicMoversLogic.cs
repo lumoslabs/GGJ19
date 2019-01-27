@@ -56,8 +56,7 @@ public class MagicMoversLogic : MonoBehaviour {
 
     private void Start()
     {
-        wiz1.PlayWalk();
-        wiz2.PlayWalk();
+       
     }
 
     /// <summary>
@@ -358,8 +357,8 @@ public class MagicMoversLogic : MonoBehaviour {
         AddFurniture();
 		UpdateScoreUI ();
         strikeController.gameObject.SetActive(true);
-        wiz1.PlayFloat();
-        wiz2.PlayFloat();
+        wiz1.PlayWalk();
+        wiz2.PlayWalk();
     }
 
     void AddFurniture()
