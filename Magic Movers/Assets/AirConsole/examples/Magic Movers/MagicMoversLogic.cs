@@ -122,6 +122,9 @@ public class MagicMoversLogic : MonoBehaviour {
     {
         DisableInput();
         strikeController.RestartGame();
+        emitter.SetParameter("gameEnd", 0);
+        emitter.Play();
+
         replayText.SetActive(false);
         for (int i = 0; i < placedFurnitureList.Count; i++)
         {
