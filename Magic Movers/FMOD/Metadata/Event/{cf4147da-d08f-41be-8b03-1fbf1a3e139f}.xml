@@ -247,7 +247,7 @@
             <value>0.25000000000000006</value>
         </property>
         <property name="length">
-            <value>1.3253741496598641</value>
+            <value>2</value>
         </property>
         <property name="timelockedOffset">
             <value>0.68138321995464834</value>
@@ -303,10 +303,10 @@
     </object>
     <object class="TransitionRegion" id="{7ae86817-006a-47d8-9bbe-9fc5655c38e4}">
         <property name="position">
-            <value>0.25000000000000006</value>
+            <value>0</value>
         </property>
         <property name="length">
-            <value>1.3253741496598641</value>
+            <value>1.5753741496598643</value>
         </property>
         <relationship name="triggerConditions">
             <destination>{08daa6a0-038d-4f9d-af2e-0c7c48823bf4}</destination>
@@ -477,10 +477,13 @@
         <property name="value">
             <value>3.81469727e-06</value>
         </property>
+        <property name="curveShape">
+            <value>0.34622857</value>
+        </property>
     </object>
     <object class="AutomationPoint" id="{e7ecab3e-5afa-43fc-8742-5d2540088994}">
         <property name="position">
-            <value>2.3025412087912085</value>
+            <value>2.3489010989010985</value>
         </property>
         <property name="value">
             <value>-80</value>
@@ -520,10 +523,13 @@
         <property name="value">
             <value>0</value>
         </property>
+        <property name="curveShape">
+            <value>0.265058398</value>
+        </property>
     </object>
     <object class="AutomationPoint" id="{f3631f9b-de77-4ff0-9730-364cb5d5b67d}">
         <property name="position">
-            <value>2.3778855083993498</value>
+            <value>2.2542591347729761</value>
         </property>
         <property name="value">
             <value>-80</value>
