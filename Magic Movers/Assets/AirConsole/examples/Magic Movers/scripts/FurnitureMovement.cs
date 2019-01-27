@@ -68,12 +68,14 @@ public class FurnitureMovement : MonoBehaviour
         }
     }
 
-    public void PlaceFurniture()
+    public GameObject PlaceFurniture()
     {
 
         rb2d.velocity = new Vector2(0, 0);
 
         isActiveFurniture = false;
+
+        return gameObject;
 
     }
 

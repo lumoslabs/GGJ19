@@ -4,13 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using UnityEngine.SceneManagement;
 
 public class MagicMoversLogic : MonoBehaviour {
 
     public FurnitureParentController furnitureParentController;
-	public Rigidbody2D racketLeft;
-	public Rigidbody2D racketRight;
-	public Rigidbody2D ball;
+    public GameObject replayText;
 	public float ballSpeed = 10f;
 	public Text uiText;
 #if !DISABLE_AIRCONSOLE 
@@ -18,7 +17,9 @@ public class MagicMoversLogic : MonoBehaviour {
 	private int scoreRacketRight = 0;
 
     private ArrayList currentDefenders;
+    private ArrayList placedFurnitureList;
     private GameObject currentAggressor;
+    private bool gameOver;
     public StrikeController strikeController;
 
 	void Awake () {
@@ -32,6 +33,8 @@ public class MagicMoversLogic : MonoBehaviour {
 
 
         currentDefenders = new ArrayList();
+        placedFurnitureList = new ArrayList();
+        gameOver = false;
     }
 
     /// <summary>
@@ -64,7 +67,6 @@ public class MagicMoversLogic : MonoBehaviour {
 				StartGame ();
 			} else {
 				AirConsole.instance.SetActivePlayers (0);
-				ResetBall (false);
 				uiText.text = "PLAYER LEFT - NEED MORE PLAYERS";
 			}
 		}
@@ -76,8 +78,19 @@ public class MagicMoversLogic : MonoBehaviour {
 	/// <param name="from">From.</param>
 	/// <param name="data">Data.</param>
 	void OnMessage (int device_id, JToken data) {
-		int active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber (device_id);
+
+        //if game is over, restart
+        if (gameOver == true)
+        {
+            Debug.Log("Restarting scene");
+            RestartGame();
+            return;
+        }
+
+        int active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber (device_id);
 		if (active_player != -1) {
+
+
 
             //if someone has pressed PLACE
             if ((bool) data["place"] == true)
@@ -95,10 +108,26 @@ public class MagicMoversLogic : MonoBehaviour {
 		}
 	}
 
+    private void RestartGame()
+    {
+        strikeController.RestartGame();
+        replayText.SetActive(false);
+        for (int i = 0; i < placedFurnitureList.Count; i++)
+        {
+            Destroy(placedFurnitureList[i] as GameObject);
+        }
+        placedFurnitureList.Clear();
+        gameOver = false;
+        StartCoroutine(AddFurnitureAfterDelay());
+
+
+    }
+
     void PlayerPlaced(int playerId)
     {
         Debug.Log("Placed: Player " + playerId);
-        furnitureParentController.Place(playerId);
+        GameObject furnitureObj =  furnitureParentController.Place(playerId);
+        placedFurnitureList.Add(furnitureObj);
     }
 
     void PlayerMoved(int playerId, float amt)
@@ -165,6 +194,8 @@ public class MagicMoversLogic : MonoBehaviour {
     private void EndGame()
     {
         Debug.Log("GAMEOVER");
+        gameOver = true;
+        replayText.SetActive(true);
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
@@ -199,19 +230,6 @@ public class MagicMoversLogic : MonoBehaviour {
         furnitureParentController.AddFurniture();
     }
 
-    void ResetBall (bool move) {
-		
-		// place ball at center
-		this.ball.position = Vector3.zero;
-		
-		// push the ball in a random direction
-		if (move) {
-			Vector3 startDir = new Vector3 (Random.Range (-1, 1f), Random.Range (-0.1f, 0.1f), 0);
-			this.ball.velocity = startDir.normalized * this.ballSpeed;
-		} else {
-			this.ball.velocity = Vector3.zero;
-		}
-	}
 
 	void UpdateScoreUI () {
 		// update text canvas
