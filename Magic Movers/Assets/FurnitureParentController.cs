@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class FurnitureParentController : MonoBehaviour
 {
+    public Color clearColor;
+    public Color blueColor;
+    public Color redColor;
+    public SpriteRenderer upArrowSprite;
+    public SpriteRenderer rightArrowSprite;
+    public SpriteRenderer downArrowSprite;
+    public SpriteRenderer leftArrowSprite;
+
     public GameObject[] furniturePrefabs;
     private GameObject furniturePrefab;
     private GameObject currentFurnitureObj;
@@ -21,6 +29,11 @@ public class FurnitureParentController : MonoBehaviour
     public delegate void FurnitureExitCallback(GameObject defender);
     public FurnitureExitCallback furnitureExitCallback;
 
+
+    private void Start()
+    {
+        HideArrows();
+    }
 
     public void AddFurniture()
     {
@@ -86,6 +99,8 @@ public class FurnitureParentController : MonoBehaviour
     {
         if (amt == 0)
         {
+            HideArrows();
+
             if (currentFurnitureController.direction == Direction.horizontal)
             {
                 currentFurnitureController.SetVelocity(new Vector2(currentFurnitureController.GetCurrentVelocity().x, 0));
@@ -97,11 +112,43 @@ public class FurnitureParentController : MonoBehaviour
         }
         else if (playerId == 0)
         {
-            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection * currentFurnitureController.speed);
+            //drag LEFT
+            if (currentFurnitureController.direction == Direction.vertical)
+            {
+                leftArrowSprite.color = blueColor;
+                currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + Vector2.left * currentFurnitureController.speed);
+            }
+            //drag UP
+            else
+            {
+                upArrowSprite.color = blueColor;
+                currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + Vector2.up * currentFurnitureController.speed);
+            }
+            //currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + lateralDirection * currentFurnitureController.speed);
         }
         else if (playerId == 1)
         {
-            currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection * currentFurnitureController.speed);
+            //drag RIGHT
+            if (currentFurnitureController.direction == Direction.vertical)
+            {
+                rightArrowSprite.color = redColor;
+                currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + Vector2.right * currentFurnitureController.speed);
+            }
+            //drag DOWN
+            else
+            {
+                downArrowSprite.color = redColor;
+                currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() + Vector2.down * currentFurnitureController.speed);
+            }
+            //currentFurnitureController.SetVelocity(currentFurnitureController.GetCurrentVelocity() - lateralDirection * currentFurnitureController.speed);
         }
+    }
+
+    private void HideArrows()
+    {
+        leftArrowSprite.color = clearColor;
+        rightArrowSprite.color = clearColor;
+        upArrowSprite.color = clearColor;
+        downArrowSprite.color = clearColor;
     }
 }

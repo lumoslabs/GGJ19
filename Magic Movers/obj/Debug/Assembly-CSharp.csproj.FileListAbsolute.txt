@@ -368,7 +368,5 @@
 /Users/steveh/workspace/GGJ19/Magic Movers/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/steveh/workspace/GGJ19/Magic Movers/obj/Debug/Assembly-CSharp.dll
 /Users/steveh/workspace/GGJ19/Magic Movers/obj/Debug/Assembly-CSharp.pdb
-/Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.dll
-/Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.dll.mdb
-/Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEditor.UI.xml
 /Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/UnityEngine.WebGLModule.dll
+/Users/steveh/workspace/GGJ19/Magic Movers/Temp/bin/Debug/Assembly-CSharp-firstpass.pdb
