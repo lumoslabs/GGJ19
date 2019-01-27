@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
-    <object class="AudioFile" id="{562facae-0170-45b5-a226-21d64283de3e}">
+    <object class="AudioFile" id="{1e43d553-9476-4eaf-be6d-ab09da868904}">
         <property name="assetPath">
-            <value>Music/magicmovers_gameloop_v1_end.wav</value>
-        </property>
-        <property name="isStreaming">
-            <value>true</value>
+            <value>SFX/woom_2.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
         <property name="channelCount">
-            <value>2</value>
+            <value>1</value>
         </property>
         <property name="length">
-            <value>11.882630385487529</value>
+            <value>1.9310430839002268</value>
         </property>
         <relationship name="masterAssetFolder">
             <destination>{b5af9590-230f-4a9b-a791-cdab39494708}</destination>
