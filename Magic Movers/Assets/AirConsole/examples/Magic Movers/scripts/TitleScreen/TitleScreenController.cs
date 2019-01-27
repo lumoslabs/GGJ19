@@ -20,8 +20,11 @@ public class TitleScreenController : MonoBehaviour
     private bool playPressed = false;
     private int pageNum = 0;
 
+    private AudioSource audio;
+
     public void Start()
     {
+        audio = GetComponent<AudioSource>();
         titleScreen.SetActive(true);
         rulesScreen.SetActive(false);
         //rectTransform = layout.GetComponent<RectTransform>();
@@ -29,6 +32,7 @@ public class TitleScreenController : MonoBehaviour
 
     public void Play()
     {
+        audio.Play();
         if (pageNum == 0)
         {
             //titleScreen.SetActive(false);
