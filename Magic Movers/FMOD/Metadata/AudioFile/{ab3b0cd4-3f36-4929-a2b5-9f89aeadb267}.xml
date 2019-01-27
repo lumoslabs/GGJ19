@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{ab3b0cd4-3f36-4929-a2b5-9f89aeadb267}">
+        <property name="assetPath">
+            <value>SFX/sfx_chimes2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>7.8725850340136052</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{b5af9590-230f-4a9b-a791-cdab39494708}</destination>
+        </relationship>
+    </object>
+</objects>
