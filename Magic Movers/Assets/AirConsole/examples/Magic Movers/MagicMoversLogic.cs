@@ -17,8 +17,9 @@ public class MagicMoversLogic : MonoBehaviour {
 	private int scoreRacketLeft = 0;
 	private int scoreRacketRight = 0;
 
-    private GameObject currentDefender;
+    private ArrayList currentDefenders;
     private GameObject currentAggressor;
+    public StrikeController strikeController;
 
 	void Awake () {
 		AirConsole.instance.onMessage += OnMessage;
@@ -29,6 +30,8 @@ public class MagicMoversLogic : MonoBehaviour {
         furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
         furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
 
+
+        currentDefenders = new ArrayList();
     }
 
     /// <summary>
@@ -111,24 +114,75 @@ public class MagicMoversLogic : MonoBehaviour {
 
     void FurniturePlacedCallback()
     {
-        if (currentDefender != null && currentAggressor != null)
+        if(currentDefenders.Count > 0)
         {
-            Destroy(currentDefender);
-            Destroy(currentAggressor);
+            DestroyCurrentFurniture();
         }
+        else
+        {
+            StartCoroutine(AddFurnitureAfterDelay());
+        }
+
+    }
+
+    IEnumerator AddFurnitureAfterDelay()
+    {
+        yield return new WaitForSeconds(2);
         AddFurniture();
+    }
+
+    private void DestroyCurrentFurniture()
+    {
+        for (int i = 0; i < currentDefenders.Count; i++)
+        {
+            if ((currentDefenders[i] as GameObject).tag == "Furniture")
+            {
+                Destroy(currentDefenders[i] as GameObject);
+            }
+        }
+        Destroy(currentAggressor);
+        currentDefenders.Clear();
+        currentAggressor = null;
+
+        GiveStrike();
+    }
+
+    private void GiveStrike()
+    {
+        bool shouldEndGame = strikeController.GiveStrike();
+        if (shouldEndGame)
+        {
+            EndGame();
+        }
+        else
+        {
+            StartCoroutine(AddFurnitureAfterDelay());
+        }
+
+
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("GAMEOVER");
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
     {
-        currentDefender = defender;
-        currentAggressor = aggressor;
+        if (defender.tag == "Boundary")
+        {
+            DestroyCurrentFurniture();
+        }
+        else
+        {
+            currentDefenders.Add(defender);
+            currentAggressor = aggressor;
+        }
     }
 
-    void HandleFurnitureExitCallback()
+    void HandleFurnitureExitCallback(GameObject defender)
     {
-        currentDefender = null;
-        currentAggressor = null;
+        currentDefenders.Remove(defender);
     }
 
     void StartGame () {

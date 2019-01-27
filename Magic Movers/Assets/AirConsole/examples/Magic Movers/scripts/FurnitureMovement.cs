@@ -18,7 +18,7 @@ public class FurnitureMovement : MonoBehaviour
     public FurnitureCollidedCallback furnitureCollidedCallback;
 
 
-    public delegate void FurnitureExitedCallback();
+    public delegate void FurnitureExitedCallback(GameObject defender);
     public FurnitureExitedCallback furnitureExitedCallback;
 
 
@@ -91,7 +91,7 @@ public class FurnitureMovement : MonoBehaviour
         Debug.Log("Trigger exited! " + collision.name);
         if (isActiveFurniture)
         {
-            furnitureExitedCallback();
+            furnitureExitedCallback(collision.gameObject);
         }
     }
     public Vector2 GetCurrentVelocity()
