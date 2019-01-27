@@ -5,7 +5,7 @@ using FMODUnity;
 
 public class StrikeController : MonoBehaviour
 {
-    public GameObject[] spriteList;
+    //public GameObject[] spriteList;
     private int currentStrikes;
 
     private AudioSource audio;
@@ -24,7 +24,7 @@ public class StrikeController : MonoBehaviour
         audio.clip = clipHolder.RandomAudio();
         audio.Play();
         currentStrikes++;
-        spriteList[currentStrikes - 1].SetActive(true);
+        //spriteList[currentStrikes - 1].SetActive(true);
         if (currentStrikes == 3)
         {
             return true;
@@ -36,9 +36,9 @@ public class StrikeController : MonoBehaviour
     public void RestartGame()
     {
         Start();
-        for (int i = 0; i < spriteList.Length; i++)
-        {
-            spriteList[i].SetActive(false);
-        }
+        //for (int i = 0; i < spriteList.Length; i++)
+        //{
+        //    spriteList[i].SetActive(false);
+        //}
     }
 }
