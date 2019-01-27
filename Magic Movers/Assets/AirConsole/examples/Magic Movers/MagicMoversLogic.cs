@@ -5,11 +5,16 @@ using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class MagicMoversLogic : MonoBehaviour {
 
     public FurnitureParentController furnitureParentController;
     public GameObject replayText;
+
+    public Camera camera;
+    private StudioEventEmitter emitter;
+
 	public float ballSpeed = 10f;
 	public Text uiText;
 #if !DISABLE_AIRCONSOLE 
@@ -31,6 +36,7 @@ public class MagicMoversLogic : MonoBehaviour {
         furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
         furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
 
+        emitter = camera.GetComponent<StudioEventEmitter>();
 
         currentDefenders = new ArrayList();
         placedFurnitureList = new ArrayList();
@@ -196,6 +202,7 @@ public class MagicMoversLogic : MonoBehaviour {
         Debug.Log("GAMEOVER");
         gameOver = true;
         replayText.SetActive(true);
+        emitter.SetParameter("gameEnd", 1);
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
