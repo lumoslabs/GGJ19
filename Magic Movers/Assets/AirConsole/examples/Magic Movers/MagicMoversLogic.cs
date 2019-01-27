@@ -290,14 +290,14 @@ public class MagicMoversLogic : MonoBehaviour {
 
         if (lastPlayerId == 1)
         {
-            wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[Random.Range(0, 6)];
+            wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[Random.Range(0, 7)];
             wizardAudio.player1Audio.loop = false;
             wizardAudio.player1Audio.volume = 1;
             wizardAudio.player1Audio.Play();
         }
         else
         {
-            wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[Random.Range(0, 6)];
+            wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[Random.Range(0, 7)];
             wizardAudio.player2Audio.loop = false;
             wizardAudio.player2Audio.volume = 1;
             wizardAudio.player2Audio.Play();
