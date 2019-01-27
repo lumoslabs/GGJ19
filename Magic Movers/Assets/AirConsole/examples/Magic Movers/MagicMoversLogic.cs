@@ -235,22 +235,6 @@ public class MagicMoversLogic : MonoBehaviour {
         DisableInput();
         yield return new WaitForSeconds(2);
         AddFurniture();
-
-        //if (lastPlayerId == 1)
-        //{
-        //    wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[wizardAudio.clips1.clips.Length - 1];
-        //    wizardAudio.player1Audio.loop = true;
-        //    wizardAudio.player1Audio.volume = 1;
-        //    wizardAudio.player1Audio.Play();
-        //}
-        //else
-        //{
-        //    wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[wizardAudio.clips2.clips.Length - 1];
-        //    wizardAudio.player2Audio.loop = true;
-        //    wizardAudio.player2Audio.volume = 1;
-        //    wizardAudio.player2Audio.Play();
-        //}
-
         lastPlayerId = 0;
     }
 
