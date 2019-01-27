@@ -1,22 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class StrikeController : MonoBehaviour
 {
     public GameObject[] spriteList;
     private int currentStrikes;
-    // Start is called before the first frame update
+
+    private StudioEventEmitter emitter;
+
     void Start()
     {
         currentStrikes = 0;
-        
+        emitter = GetComponent<StudioEventEmitter>();
     }
 
 
     public bool GiveStrike()
     {
-
+        emitter.Play();
         currentStrikes++;
         spriteList[currentStrikes - 1].SetActive(true);
         if (currentStrikes == 3)

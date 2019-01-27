@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
-    <object class="AudioFile" id="{4cd0e0ca-655f-4129-89fb-0d06be787c79}">
+    <object class="AudioFile" id="{3d904ee1-63a4-4f46-a631-a3c4cd5efed3}">
         <property name="assetPath">
-            <value>SFX/sfx_magic_start4.wav</value>
+            <value>SFX/knock_low_overdrive_1.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
@@ -11,7 +11,7 @@
             <value>2</value>
         </property>
         <property name="length">
-            <value>0.17401360544217687</value>
+            <value>1.6687301587301586</value>
         </property>
         <relationship name="masterAssetFolder">
             <destination>{b5af9590-230f-4a9b-a791-cdab39494708}</destination>

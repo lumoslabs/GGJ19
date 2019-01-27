@@ -124,6 +124,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{bdc7879f-455d-4b2f-bd9d-856f4ec5c952}">
+        <property name="volume">
+            <value>5</value>
+        </property>
         <relationship name="effectChain">
             <destination>{e5bcd58e-9051-47a0-afa5-dc0cc2504207}</destination>
         </relationship>
@@ -320,6 +323,8 @@
     </object>
     <object class="MixerBusEffectChain" id="{e5bcd58e-9051-47a0-afa5-dc0cc2504207}">
         <relationship name="effects">
+            <destination>{c7253106-d145-424f-8360-0c7036856ee9}</destination>
+            <destination>{bd1f996b-7e64-412b-b8b9-6aba3e503f89}</destination>
             <destination>{7116146e-345f-41d5-9155-fecdaf2ad54f}</destination>
         </relationship>
     </object>
@@ -384,6 +389,25 @@
             <destination>{cc934828-8c14-4213-b177-2690469b4d9e}</destination>
         </relationship>
     </object>
+    <object class="FlangerEffect" id="{c7253106-d145-424f-8360-0c7036856ee9}">
+        <property name="rate">
+            <value>1.99999988</value>
+        </property>
+        <property name="delay">
+            <value>0.610000014</value>
+        </property>
+        <property name="mix">
+            <value>25</value>
+        </property>
+    </object>
+    <object class="PitchShifterEffect" id="{bd1f996b-7e64-412b-b8b9-6aba3e503f89}">
+        <property name="pitch">
+            <value>0.970000088</value>
+        </property>
+        <relationship name="modulators">
+            <destination>{9b13cdb6-5d32-4196-ae1d-cb4852351d9c}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{7116146e-345f-41d5-9155-fecdaf2ad54f}"/>
     <object class="AutomationCurve" id="{a056c09f-25c7-4846-9059-961afa50c68c}">
         <relationship name="parameter">
@@ -419,6 +443,14 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{a11e5578-704f-4833-a187-faafd3d5976c}"/>
+    <object class="RandomizerModulator" id="{9b13cdb6-5d32-4196-ae1d-cb4852351d9c}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>pitch</value>
+        </property>
+        <property name="amount">
+            <value>15</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{bfe78498-2748-458c-a939-97aa3c82b7bd}">
         <property name="position">
             <value>0.23459886990399736</value>
