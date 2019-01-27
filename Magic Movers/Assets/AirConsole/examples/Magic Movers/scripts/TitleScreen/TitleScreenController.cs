@@ -31,11 +31,12 @@ public class TitleScreenController : MonoBehaviour
     {
         if (pageNum == 0)
         {
-            titleScreen.SetActive(false);
+            //titleScreen.SetActive(false);
             rulesScreen.SetActive(true);
         }
         if (pageNum == 1)
         {
+            titleScreen.SetActive(false);
             rulesScreen.SetActive(false);
         }   
         pageNum++;

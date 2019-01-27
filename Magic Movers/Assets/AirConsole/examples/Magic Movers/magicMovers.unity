@@ -316,7 +316,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9924d9891e354815a7dbcce85a086ad, type: 3}
     m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap any button to restart
+  m_Text: <color=purple>Press any button on your phone to restart</color>
 --- !u!222 &134304433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -459,6 +459,80 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.908086, y: 8.315663}
   m_EdgeRadius: 0
+--- !u!1 &274185039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274185040}
+  - component: {fileID: 274185042}
+  - component: {fileID: 274185041}
+  m_Layer: 5
+  m_Name: Instructions BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &274185040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274185039}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1344949527}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.18668751, y: 0.13000001}
+  m_AnchorMax: {x: 0.80862504, y: 0.32169995}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: 0, y: 1.1000061}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &274185041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274185039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4392157}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &274185042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274185039}
+  m_CullTransparentMesh: 0
 --- !u!1 &285566362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +1102,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9924d9891e354815a7dbcce85a086ad, type: 3}
     m_FontSize: 28
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 52
@@ -1157,10 +1231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f626180d9e141c8bf913b9772a13b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 62324457}
-  player2: {fileID: 663894288}
-  player1Audio: {fileID: 0}
-  player2Audio: {fileID: 0}
 --- !u!4 &773628021
 Transform:
   m_ObjectHideFlags: 0
@@ -1543,7 +1613,7 @@ GameObject:
   - component: {fileID: 879608838}
   - component: {fileID: 879608837}
   m_Layer: 5
-  m_Name: PressPlayText
+  m_Name: Instructions Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1631,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1344949527}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18668751, y: 0}
   m_AnchorMax: {x: 0.80862504, y: 0.455562}
@@ -1589,9 +1659,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9924d9891e354815a7dbcce85a086ad, type: 3}
     m_FontSize: 33
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 79
@@ -1935,7 +2005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344949527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1948,12 +2018,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1577982963}
+  - {fileID: 274185040}
   - {fileID: 879608836}
   m_Father: {fileID: 1655055598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.1}
-  m_AnchorMax: {x: 0.9, y: 0.9}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2198,7 +2269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEED 2 MORE PLAYERS
+  m_Text: A GAME FOR 2 PLAYERS
 --- !u!222 &1508142943
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2238,7 +2309,7 @@ GameObject:
   - component: {fileID: 1577982965}
   - component: {fileID: 1577982964}
   m_Layer: 5
-  m_Name: Title Text
+  m_Name: Title Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2258,7 +2329,7 @@ RectTransform:
   m_Father: {fileID: 1344949527}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -2272,7 +2343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1577982962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2283,20 +2354,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 96
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 102
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Marie's Condo
+  m_Sprite: {fileID: 21300000, guid: 6799cf3686564481f96f5fac0615458c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!222 &1577982965
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3083,7 +3149,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b9924d9891e354815a7dbcce85a086ad, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 1
@@ -3095,11 +3161,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<b>You are wizards hired to help Marie move into her new condo!</b>
+  m_Text: '<b>You are wizards hired to help Marie move into her condo!</b>
 
 
-    As furniture floats through the house, you can each <color=purple>PULL</color>
-    it or <color=purple>PLACE</color> it down.
+    As furniture floats through the house, user your phone controller to <color=purple>PULL</color>
+    it towards you or <color=purple>PLACE</color> it down.
 
 
     Furniture <color=purple>PLACED</color> on top of other items, in walls, or outside
@@ -3292,7 +3358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2079473102
 RectTransform:
   m_ObjectHideFlags: 0
