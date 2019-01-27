@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6367995814436427737}
   - component: {fileID: 7952194487117944425}
   m_Layer: 0
-  m_Name: furniture
+  m_Name: plant_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4691271716861477931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.055887, y: -0.31530344, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 1419807547
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34a97f14f8f9d4b0eb13da28a19169b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a62fab6e26fdd49a188fc548e0be57bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,7 +135,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.8300002, y: 3.7900002}
+    oldSize: {x: 0.6, y: 0.6}
     newSize: {x: 3.8300002, y: 3.7900002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -143,7 +143,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9150001, y: 1.9150001}
-      - {x: -1.9150001, y: -1.9150001}
-      - {x: 1.9150001, y: -1.9150001}
-      - {x: 1.9150001, y: 1.9150001}
+    - - {x: 0.29, y: 0.07}
+      - {x: 0.29, y: 0.19}
+      - {x: 0.22, y: 0.19}
+      - {x: 0.19999999, y: 0.25}
+      - {x: 0.089999996, y: 0.29999998}
+      - {x: -0.03, y: 0.29999998}
+      - {x: -0.049999997, y: 0.29}
+      - {x: -0.17999999, y: 0.26999998}
+      - {x: -0.19999999, y: 0.19}
+      - {x: -0.28, y: 0.14999999}
+      - {x: -0.29, y: 0.14}
+      - {x: -0.29, y: 0.07}
+      - {x: -0.28, y: 0.049999997}
+      - {x: -0.19999999, y: -0.049999997}
+      - {x: -0.17999999, y: -0.22}
+      - {x: -0.08, y: -0.29}
+      - {x: 0.07, y: -0.29}
+      - {x: 0.17999999, y: -0.22}
+      - {x: 0.22, y: -0.14}
+      - {x: 0.17999999, y: 0.01}

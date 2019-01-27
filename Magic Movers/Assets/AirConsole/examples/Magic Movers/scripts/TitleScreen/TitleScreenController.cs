@@ -4,15 +4,51 @@ using UnityEngine;
 
 public class TitleScreenController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float endY;
+    private float endActual = 0;
+    private Vector3 start, end;
+
+    public float speed;
+    private float startTime;
+    private float distance;
+
+    public GameObject layout;
+    private RectTransform rectTransform;
+
+    private bool playPressed = false;
+
+    public void Start()
     {
-        
+        rectTransform = layout.GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Play()
     {
-        
+        if (!playPressed)
+        {
+            start = new Vector3(rectTransform.position.x, rectTransform.position.y, 0);
+            endActual += endY;
+            end = new Vector3(rectTransform.position.x, endActual, 0);
+
+            startTime = Time.time;
+            distance = Vector3.Distance(start, end);
+            playPressed = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Play();
+        }
+
+        if (playPressed)
+        {
+            float distCovered = (Time.time - startTime) * speed;
+            float fracJourney = distCovered / distance;
+            rectTransform.position = Vector3.Lerp(start, end, fracJourney);
+            if (fracJourney >= 1) { playPressed = false; }
+        }
     }
 }
