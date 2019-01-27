@@ -100,6 +100,11 @@ public class FurnitureParentController : MonoBehaviour
 
     public GameObject Place(int playerId)
     {
+        if (playerId == 1)
+        {
+            audio.clip = clipHolder.RandomPlaceClip1();
+        }
+
         GameObject furnitureObj = currentFurnitureController.PlaceFurniture();
         furniturePlacedCallback();
         animController.PlayPlace();

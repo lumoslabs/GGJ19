@@ -32,6 +32,8 @@ public class MagicMoversLogic : MonoBehaviour {
     public StrikeController strikeController;
     public TitleScreenController titleScreenController;
     private bool gameStarted = false;
+    public WizardAudio wizardAudio;
+    private int lastPlayerId;
 
 	void Awake () {
 		AirConsole.instance.onMessage += OnMessage;
@@ -175,7 +177,7 @@ public class MagicMoversLogic : MonoBehaviour {
         {
             wiz1.PlayWin();
         }
-
+        lastPlayerId = playerId + 1;
     }
 
     void PlayerMoved(int playerId, float amt)
@@ -187,10 +189,12 @@ public class MagicMoversLogic : MonoBehaviour {
             if (amt > 0)
             {
                 wiz2.PlayPull();
+                wizardAudio.player2Audio.volume = 1;
             }
             else
             {
                 wiz2.PlayFloat();
+                wizardAudio.player2Audio.volume = 0;
             }
         }
         else
@@ -198,10 +202,12 @@ public class MagicMoversLogic : MonoBehaviour {
             if (amt > 0)
             {
                 wiz1.PlayPull();
+                wizardAudio.player1Audio.volume = 1;
             }
             else
             {
                 wiz1.PlayFloat();
+                wizardAudio.player1Audio.volume = 0;
             }
         }
     }
@@ -254,6 +260,11 @@ public class MagicMoversLogic : MonoBehaviour {
         currentDefenders.Clear();
         currentAggressor = null;
 
+        wizardAudio.player1Audio.clip = wizardAudio.clips1.clips[Random.Range(0, wizardAudio.clips1.clips.Length - 1)];
+        wizardAudio.player1Audio.loop = false;
+        wizardAudio.player1Audio.Play();
+        lastPlayerId = 0;
+
         GiveStrike();
     }
 
@@ -268,6 +279,7 @@ public class MagicMoversLogic : MonoBehaviour {
         {
             StartCoroutine(AddFurnitureAfterDelay());
         }
+        lastPlayerId = 0;
     }
 
     private void EndGame()
