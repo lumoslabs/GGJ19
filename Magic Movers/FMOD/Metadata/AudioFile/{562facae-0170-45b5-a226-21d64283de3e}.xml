@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{562facae-0170-45b5-a226-21d64283de3e}">
         <property name="assetPath">
-            <value>SFX/magicmovers_gameloop_v1_end.wav</value>
+            <value>Music/magicmovers_gameloop_v1_end.wav</value>
         </property>
         <property name="isStreaming">
             <value>true</value>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
-    <object class="AudioFile" id="{4cd0e0ca-655f-4129-89fb-0d06be787c79}">
+    <object class="AudioFile" id="{c60f0f3c-598b-4a5e-a664-1ebb6c4f0383}">
         <property name="assetPath">
-            <value>SFX/sfx_magic_start4.wav</value>
+            <value>SFX/thunk_7.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
         <property name="channelCount">
-            <value>2</value>
+            <value>1</value>
         </property>
         <property name="length">
-            <value>0.17401360544217687</value>
+            <value>0.87079365079365079</value>
         </property>
         <relationship name="masterAssetFolder">
             <destination>{b5af9590-230f-4a9b-a791-cdab39494708}</destination>
