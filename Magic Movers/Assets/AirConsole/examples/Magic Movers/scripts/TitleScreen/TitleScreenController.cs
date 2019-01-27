@@ -40,11 +40,6 @@ public class TitleScreenController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            Play();
-        }
-
         if (playPressed)
         {
             float distCovered = (Time.time - startTime) * speed;
@@ -55,10 +50,14 @@ public class TitleScreenController : MonoBehaviour
                 pageNum++;
             }
         }
+    }
 
-        if (pageNum >= 2)
+    public bool TitleFinished()
+    {
+        if (pageNum >=2 )
         {
-            SceneManager.LoadScene(sceneName: "magicMovers");
+            return true;
         }
+        return false;
     }
 }

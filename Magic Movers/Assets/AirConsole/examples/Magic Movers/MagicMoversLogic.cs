@@ -27,6 +27,8 @@ public class MagicMoversLogic : MonoBehaviour {
     private bool inputEnabled;
     private bool gameOver;
     public StrikeController strikeController;
+    public TitleScreenController titleScreenController;
+    private bool gameStarted = false;
 
 	void Awake () {
 		AirConsole.instance.onMessage += OnMessage;
@@ -56,7 +58,8 @@ public class MagicMoversLogic : MonoBehaviour {
     void OnConnect (int device_id) {
 		if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0) {
 			if (AirConsole.instance.GetControllerDeviceIds ().Count >= 2) {
-				StartGame ();
+                AirConsole.instance.SetActivePlayers(2);
+                EnableInput();
 			} else {
 				uiText.text = "NEED MORE PLAYERS";
 			}
@@ -99,23 +102,32 @@ public class MagicMoversLogic : MonoBehaviour {
 
         int active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber (device_id);
 		if (active_player != -1) {
-
-
-
             //if someone has pressed PLACE
             if ((bool) data["place"] == true)
             { 
-                PlayerPlaced(active_player);
+                if (gameStarted)
+                {
+                    PlayerPlaced(active_player);
+                }
+                else
+                {
+                    titleScreenController.Play();
+                }
             }
 
             //if someone has pressed MOVE
             else
-            { 
-                PlayerMoved(active_player, (float)data["move"]);
+            {
+                if (gameStarted)
+                {
+                    PlayerMoved(active_player, (float)data["move"]);
+                }
+                else
+                {
+                    titleScreenController.Play();
+                }
             }
-
-
-		}
+        }
 	}
 
     private void RestartGame()
@@ -133,8 +145,6 @@ public class MagicMoversLogic : MonoBehaviour {
         placedFurnitureList.Clear();
         gameOver = false;
         StartCoroutine(AddFurnitureAfterDelay());
-
-
     }
 
     void PlayerPlaced(int playerId)
@@ -212,8 +222,6 @@ public class MagicMoversLogic : MonoBehaviour {
         {
             StartCoroutine(AddFurnitureAfterDelay());
         }
-
-
     }
 
     private void EndGame()
@@ -243,11 +251,9 @@ public class MagicMoversLogic : MonoBehaviour {
     }
 
     void StartGame () {
+        gameStarted = true;
 		AirConsole.instance.SetActivePlayers (2);
         AddFurniture();
-		//ResetBall (true);
-		//scoreRacketLeft = 0;
-		//scoreRacketRight = 0;
 		UpdateScoreUI ();
 	}
 
@@ -257,26 +263,9 @@ public class MagicMoversLogic : MonoBehaviour {
         EnableInput();
     }
 
-
 	void UpdateScoreUI () {
 		// update text canvas
 		uiText.text = scoreRacketLeft + ":" + scoreRacketRight;
-	}
-
-	void FixedUpdate () {
-
-		// check if ball reached one of the ends
-		//if (this.ball.position.x < -9f) {
-		//	scoreRacketRight++;
-		//	UpdateScoreUI ();
-		//	ResetBall (true);
-		//}
-
-		//if (this.ball.position.x > 9f) {
-		//	scoreRacketLeft++;
-		//	UpdateScoreUI ();
-		//	ResetBall (true);
-		//}
 	}
 
 	void OnDestroy () {
@@ -286,5 +275,13 @@ public class MagicMoversLogic : MonoBehaviour {
 			AirConsole.instance.onMessage -= OnMessage;
 		}
 	}
+
+    private void Update()
+    {
+        if (titleScreenController.TitleFinished() && !gameStarted)
+        {
+            StartGame();
+        }
+    }
 #endif
 }
