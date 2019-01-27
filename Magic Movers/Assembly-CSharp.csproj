@@ -66,6 +66,8 @@
     <Compile Include="Assets\AirConsole\examples\Magic Movers\MagicMoversLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\Furniture.cs" />
     <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\FurnitureMovement.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\TitleScreen\TitleScreenController.cs" />
+    <Compile Include="Assets\AirConsole\examples\Magic Movers\scripts\TitleScreen\TitleTextController.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\PlatformerExampleLogic.cs" />
     <Compile Include="Assets\AirConsole\examples\platformer\Player_Platformer.cs" />
     <Compile Include="Assets\AirConsole\examples\pong\ExamplePongLogic.cs" />

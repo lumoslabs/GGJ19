@@ -4,14 +4,13 @@
     <script type="text/javascript"
             src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
     <script type="text/javascript">
-
-    var airconsole;
+var airconsole;
     /**
      * Sets up the communication to the screen.
      */
     function init() {
       airconsole = new AirConsole({"orientation": "portrait"});
-     
+
       airconsole.onActivePlayersChange = function(player_number) {
         updateText(player_number);
       }
@@ -24,7 +23,7 @@
       * --> WE STRONGLY ENCOURAGE YOU TO USE THE AIRCONSOLE CONTROLS LIBRARY
       * WHICH IS EVEN BETTER (BUT WE DONT WANT TO BLOAT THE CODE HERE).
       * https://github.com/AirConsole/airconsole-controls/
-      * 
+      *
       * DO NOT USE ONCLICK HANDLERS.
       * THEY ADD A 200MS DELAY!
       */
@@ -46,14 +45,20 @@
 
 	function updateText(player_number) {
 	  var div = document.getElementById("player_id");
+      var button1Div = document.getElementById("button1");
+      var button2Div = document.getElementById("button2");
       if (airconsole.getActivePlayerDeviceIds().length == 0) {
         div.innerHTML = "Waiting for more players.";
       } else if (player_number == undefined) {
         div.innerHTML = "This is a 2 player game";
       } else if (player_number == 0) {
         div.innerHTML = "You are the player on the left";
+        button1Div.style.backgroundColor = "#4158D8";
+        button2Div.style.backgroundColor = "#4158D8";
       } else if (player_number == 1) {
         div.innerHTML = "You are the player on the right";
+        button1Div.style.backgroundColor = "#E44E51";
+        button2Div.style.backgroundColor = "#E44E51";
       };
 	}
 
@@ -66,9 +71,7 @@
     }
     function place() {
       airconsole.message(AirConsole.SCREEN, {place: true, move: false})
-    }
-
-    </script>
+    }</script>
     <style type="text/css">
         @font-face {
             font-family: 'Arial';
@@ -111,11 +114,11 @@
 </head>
 <body onload="init()">
     <div style="height: 1%"></div>
-    <div class=button ontouchstart="place()">
+    <div id="button1" class=button ontouchstart="place()">
         <div class="button_label">PLACE</div>
     </div>
     <div style="height: 8%"></div>
-    <div class=button ontouchstart="move(1)" ontouchend="move(0)">
+    <div id="button2" class=button ontouchstart="move(1)" ontouchend="move(0)">
         <div class="button_label">MOVE</div>
     </div>
     <div id="player_id"></div>

@@ -24,6 +24,7 @@ public class MagicMoversLogic : MonoBehaviour {
     private ArrayList currentDefenders;
     private ArrayList placedFurnitureList;
     private GameObject currentAggressor;
+    private bool inputEnabled;
     private bool gameOver;
     public StrikeController strikeController;
 
@@ -84,7 +85,10 @@ public class MagicMoversLogic : MonoBehaviour {
 	/// <param name="from">From.</param>
 	/// <param name="data">Data.</param>
 	void OnMessage (int device_id, JToken data) {
-
+        if (inputEnabled == false)
+        {
+            return;
+        }
         //if game is over, restart
         if (gameOver == true)
         {
@@ -116,6 +120,7 @@ public class MagicMoversLogic : MonoBehaviour {
 
     private void RestartGame()
     {
+        DisableInput();
         strikeController.RestartGame();
         replayText.SetActive(false);
         for (int i = 0; i < placedFurnitureList.Count; i++)
@@ -162,8 +167,19 @@ public class MagicMoversLogic : MonoBehaviour {
 
     IEnumerator AddFurnitureAfterDelay()
     {
+        DisableInput();
         yield return new WaitForSeconds(2);
         AddFurniture();
+    }
+
+    public void DisableInput()
+    {
+        inputEnabled = false;
+    }
+
+    public void EnableInput()
+    {
+        inputEnabled = true;
     }
 
     private void DestroyCurrentFurniture()
@@ -235,6 +251,7 @@ public class MagicMoversLogic : MonoBehaviour {
     void AddFurniture()
     {
         furnitureParentController.AddFurniture();
+        EnableInput();
     }
 
 
