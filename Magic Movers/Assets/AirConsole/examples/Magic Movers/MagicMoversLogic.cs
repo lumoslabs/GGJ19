@@ -116,18 +116,7 @@ public class MagicMoversLogic : MonoBehaviour {
     {
         if(currentDefenders.Count > 0)
         {
-            for(int i = 0; i < currentDefenders.Count; i++)
-            {
-                if ((currentDefenders[i] as GameObject).tag == "Furniture")
-                {
-                    Destroy(currentDefenders[i] as GameObject);
-                }
-            }
-            Destroy(currentAggressor);
-            currentDefenders.Clear();
-            currentAggressor = null;
-
-            GiveStrike();
+            DestroyCurrentFurniture();
         }
         else
         {
@@ -140,6 +129,22 @@ public class MagicMoversLogic : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         AddFurniture();
+    }
+
+    private void DestroyCurrentFurniture()
+    {
+        for (int i = 0; i < currentDefenders.Count; i++)
+        {
+            if ((currentDefenders[i] as GameObject).tag == "Furniture")
+            {
+                Destroy(currentDefenders[i] as GameObject);
+            }
+        }
+        Destroy(currentAggressor);
+        currentDefenders.Clear();
+        currentAggressor = null;
+
+        GiveStrike();
     }
 
     private void GiveStrike()
@@ -164,8 +169,15 @@ public class MagicMoversLogic : MonoBehaviour {
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
     {
-        currentDefenders.Add(defender);
-        currentAggressor = aggressor;
+        if (defender.tag == "Boundary")
+        {
+            DestroyCurrentFurniture();
+        }
+        else
+        {
+            currentDefenders.Add(defender);
+            currentAggressor = aggressor;
+        }
     }
 
     void HandleFurnitureExitCallback(GameObject defender)
