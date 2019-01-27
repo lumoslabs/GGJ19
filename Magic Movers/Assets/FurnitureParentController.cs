@@ -12,6 +12,9 @@ public class FurnitureParentController : MonoBehaviour
     public SpriteRenderer downArrowSprite;
     public SpriteRenderer leftArrowSprite;
 
+    public FurnitureAnimationController animController;
+
+
     public GameObject[] furniturePrefabs;
     private GameObject furniturePrefab;
     private GameObject currentFurnitureObj;
@@ -46,6 +49,7 @@ public class FurnitureParentController : MonoBehaviour
         audio.Play();
         currentFurnitureObj = Instantiate(furniturePrefab, transform);
         currentFurnitureObj.transform.localPosition = Vector3.zero;
+        animController = currentFurnitureObj.GetComponent<FurnitureAnimationController>();
         currentFurnitureController = currentFurnitureObj.GetComponent<FurnitureMovement>();
         currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
         currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
@@ -103,6 +107,9 @@ public class FurnitureParentController : MonoBehaviour
 
         GameObject furnitureObj = currentFurnitureController.PlaceFurniture();
         furniturePlacedCallback();
+        animController.PlayPlace();
+        animController.SetColor(playerId);
+
         return furnitureObj;
     }
 
@@ -112,6 +119,8 @@ public class FurnitureParentController : MonoBehaviour
         {
             HideArrows();
 
+            animController.SetColor(2); 
+
             if (currentFurnitureController.direction == Direction.horizontal)
             {
                 currentFurnitureController.SetVelocity(new Vector2(currentFurnitureController.GetCurrentVelocity().x, 0));
@@ -120,9 +129,12 @@ public class FurnitureParentController : MonoBehaviour
             {
                 currentFurnitureController.SetVelocity(new Vector2(0, currentFurnitureController.GetCurrentVelocity().y));
             }
+
         }
         else if (playerId == 0)
         {
+            animController.SetColor(playerId);
+
             //drag LEFT
             if (currentFurnitureController.direction == Direction.vertical)
             {
@@ -139,6 +151,8 @@ public class FurnitureParentController : MonoBehaviour
         }
         else if (playerId == 1)
         {
+            animController.SetColor(playerId);
+
             //drag RIGHT
             if (currentFurnitureController.direction == Direction.vertical)
             {

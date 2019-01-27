@@ -134,7 +134,7 @@ public class MagicMoversLogic : MonoBehaviour {
                 {
                     PlayerMoved(active_player, (float)data["move"]);
                 }
-                else
+                else if ((float)data["move"] != 0)
                 {
                     titleScreenController.Play();
                 }
@@ -319,6 +319,7 @@ public class MagicMoversLogic : MonoBehaviour {
 		AirConsole.instance.SetActivePlayers (2);
         AddFurniture();
 		UpdateScoreUI ();
+        strikeController.gameObject.SetActive(true);
         wiz1.PlayFloat();
         wiz2.PlayFloat();
     }
