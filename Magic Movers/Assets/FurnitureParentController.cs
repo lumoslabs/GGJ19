@@ -73,10 +73,11 @@ public class FurnitureParentController : MonoBehaviour
         this.furnitureExitCallback(defender);
     }
 
-    public void Place(int playerId)
+    public GameObject Place(int playerId)
     {
-        currentFurnitureController.PlaceFurniture();
+        GameObject furnitureObj = currentFurnitureController.PlaceFurniture();
         furniturePlacedCallback();
+        return furnitureObj;
     }
 
     public void Move(int playerId, float amt)

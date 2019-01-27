@@ -13,12 +13,6 @@ public class StrikeController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool GiveStrike()
     {
 
@@ -30,5 +24,14 @@ public class StrikeController : MonoBehaviour
         }
         return false;
 
+    }
+
+    public void RestartGame()
+    {
+        Start();
+        for (int i = 0; i < spriteList.Length; i++)
+        {
+            spriteList[i].SetActive(false);
+        }
     }
 }
