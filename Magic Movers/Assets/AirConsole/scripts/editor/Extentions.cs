@@ -132,16 +132,22 @@ namespace NDream.AirConsole.Editor {
 
 		public static string GetLocalAddress () {
 
-			string localIP = "";
+			// string localIP = "";
   
-			foreach (IPAddress ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList) {
+			// foreach (IPAddress ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList) {
                 
-				if (ip.AddressFamily == AddressFamily.InterNetwork) {
-					localIP = ip.ToString ();
-					break;
-				}
-			}
-			return localIP;
+			// 	if (ip.AddressFamily == AddressFamily.InterNetwork) {
+			// 		localIP = ip.ToString ();
+			// 		break;
+			// 	}
+			// }
+			// return localIP;
+
+			// return "4.53.140.54";
+			return "10.11.18.32";
+			// return UnityEngine.Network.player.ipAddress.ToString();
+
+
 		}
 	}
 }
