@@ -60,6 +60,16 @@ public class FurnitureParentController : MonoBehaviour
 
     }
 
+    public void OnPauseGame()
+    {
+        currentFurnitureObj.GetComponent<FurnitureMovement>().OnPauseGame();    
+    }
+
+    public void OnResumeGame()
+    {
+        currentFurnitureObj.GetComponent<FurnitureMovement>().OnResumeGame();    
+    }
+
     private Vector2 FindLateralDirection(Vector2 direction)
     {
 

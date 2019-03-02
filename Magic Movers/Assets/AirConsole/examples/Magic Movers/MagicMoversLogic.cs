@@ -35,6 +35,8 @@ public class MagicMoversLogic : MonoBehaviour {
     public WizardAudio wizardAudio;
     private int lastPlayerId;
 
+    private bool isPaused = false;
+
 	void Awake () {
         GetComponent<AudioSource>().Play();
 
@@ -59,6 +61,18 @@ public class MagicMoversLogic : MonoBehaviour {
        
     }
 
+    public void OnPauseGame()
+    {
+        this.isPaused = true;
+        furnitureParentController.OnPauseGame();    
+    }
+
+    public void onResumeGame()
+    {
+        this.isPaused = false;
+        furnitureParentController.OnResumeGame();    
+    }
+
     /// <summary>
     /// We start the game if 2 players are connected and the game is not already running (activePlayers == null).
     /// 
@@ -70,10 +84,18 @@ public class MagicMoversLogic : MonoBehaviour {
     /// <param name="device_id">The device_id that connected</param>
     void OnConnect (int device_id) {
 		if (AirConsole.instance.GetActivePlayerDeviceIds.Count == 0) {
-			if (AirConsole.instance.GetControllerDeviceIds ().Count >= 2) {
+			if (AirConsole.instance.GetControllerDeviceIds ().Count == 2) 
+            {
                 AirConsole.instance.SetActivePlayers(2);
+                uiText.text = "";
                 EnableInput();
-			} else {
+                if (this.isPaused)
+                {
+                    this.onResumeGame();
+                }
+			} 
+            else
+            {
 				uiText.text = "NEED MORE PLAYERS";
 			}
 		}
@@ -85,12 +107,17 @@ public class MagicMoversLogic : MonoBehaviour {
 	/// <param name="device_id">The device_id that has left.</param>
 	void OnDisconnect (int device_id) {
 		int active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber (device_id);
-		if (active_player != -1) {
+		if (active_player != -1) { 
 			if (AirConsole.instance.GetControllerDeviceIds ().Count >= 2) {
-				StartGame ();
+				// StartGame ();
 			} else {
 				AirConsole.instance.SetActivePlayers (0);
-				uiText.text = "PLAYER LEFT - NEED MORE PLAYERS";
+				uiText.text = "GAME PAUSED - PLEASE RECONNECT BOTH PLAYERS";
+                Debug.Log("Player Disconnected - not enough to continue");
+                this.OnPauseGame();
+                // Debug.Break();
+                // Scene scene = SceneManager.GetActiveScene(); 
+                // SceneManager.LoadScene("magicMovers");
 			}
 		}
 	}

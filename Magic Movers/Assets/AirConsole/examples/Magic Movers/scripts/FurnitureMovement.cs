@@ -20,7 +20,7 @@ public class FurnitureMovement : MonoBehaviour
 
     public delegate void FurnitureExitedCallback(GameObject defender);
     public FurnitureExitedCallback furnitureExitedCallback;
-
+    Vector2 savedVelocity;
 
     public void Init()
     {
@@ -67,6 +67,17 @@ public class FurnitureMovement : MonoBehaviour
             PlaceFurniture();
         }
     }
+
+    public void OnPauseGame() {
+        Debug.Log("Pausing Furniture");
+         savedVelocity = rb2d.velocity;
+         rb2d.velocity = Vector2.zero;
+     }
+ 
+    public void OnResumeGame() {
+        Debug.Log("Resuming Furniture");
+         rb2d.velocity = savedVelocity;
+     }
 
 
 
