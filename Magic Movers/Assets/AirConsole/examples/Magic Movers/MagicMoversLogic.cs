@@ -260,6 +260,12 @@ public class MagicMoversLogic : MonoBehaviour {
         inputEnabled = false;
     }
 
+    IEnumerator EnableInputAfterDelay()
+    {
+        yield return new WaitForSeconds(2);
+        EnableInput();
+    }
+
     public void EnableInput()
     {
         inputEnabled = true;
@@ -322,6 +328,9 @@ public class MagicMoversLogic : MonoBehaviour {
     private void EndGame()
     {
         Debug.Log("GAMEOVER");
+        
+        DisableInput();
+
         gameOver = true;
         replayText.SetActive(true);
 
@@ -331,6 +340,9 @@ public class MagicMoversLogic : MonoBehaviour {
 
         wiz1.PlayLose();
         wiz2.PlayLose();
+
+        //enable input after a short timeout
+        StartCoroutine(AddFurnitureAfterDelay());
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
