@@ -49,6 +49,8 @@ var airconsole;
       var button2Div = document.getElementById("button2");
       if (airconsole.getActivePlayerDeviceIds().length == 0) {
         div.innerHTML = "Waiting for more players.";
+        button1Div.style.backgroundColor = "grey";
+        button2Div.style.backgroundColor = "grey";
       } else if (player_number == undefined) {
         div.innerHTML = "This is a 2 player game";
       } else if (player_number == 0) {
