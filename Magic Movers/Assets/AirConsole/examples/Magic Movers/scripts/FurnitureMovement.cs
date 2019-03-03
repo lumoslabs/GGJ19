@@ -36,7 +36,7 @@ public class FurnitureMovement : MonoBehaviour
         isActiveFurniture = true;
     }
 
-    public void AssignPositionAndDirection()
+    public void AssignPositionAndDirection(float validWidth, float validHeight)
     {
         int[] angles = new int[] { 0, 90, 180, 270 };
         isPositive = Random.value >= 0.5 ? true : false;
@@ -44,14 +44,15 @@ public class FurnitureMovement : MonoBehaviour
         speed = Random.Range(2, 3);
         transform.rotation = Quaternion.Euler(0, 0, angles[Random.Range(0, angles.Length)]);
 
+        float bufferAmt = 1.1f;
         if (direction == Direction.horizontal)
         {
-            transform.position = new Vector3(isPositive ? -7 : 7, Random.Range(-3, 3));
+            transform.position = new Vector3(isPositive ? -validWidth * bufferAmt : validWidth * bufferAmt, Random.Range(-validHeight, validHeight));
             rb2d.velocity = new Vector2(speed * (isPositive ? 1 : -1), 0);
         }
         else
         {
-            transform.position = new Vector3(Random.Range(-5, 5), isPositive ? -7 : 7);
+            transform.position = new Vector3(Random.Range(-validWidth, validWidth), isPositive ? -validHeight * bufferAmt : validHeight * bufferAmt);
             rb2d.velocity = new Vector2(0, speed * (isPositive ? 1 : -1));
         }
     }

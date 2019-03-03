@@ -35,6 +35,15 @@ public class FurnitureParentController : MonoBehaviour
     private AudioSource audio;
     private FurnitureClipHolder clipHolder;
 
+    float validWidth = 0f;
+    float validHeight = 0f;
+
+    public void Init(Vector3 leftBoundary, Vector3 rightBoundary, Vector3 topBoundary, Vector3 bottomBoundary)
+    {
+        validWidth = .5f * .8f * Mathf.Abs(rightBoundary.x - leftBoundary.x);
+        validHeight = .5f * .8f * Mathf.Abs(topBoundary.y - bottomBoundary.y);
+    }
+
     private void Start()
     {
         HideArrows();
@@ -54,7 +63,7 @@ public class FurnitureParentController : MonoBehaviour
         currentFurnitureController.furnitureCollidedCallback = FurnitureCollidedCallback;
         currentFurnitureController.furnitureExitedCallback = FurnitureExitedCallback;
         currentFurnitureController.Init();
-        currentFurnitureController.AssignPositionAndDirection();
+        currentFurnitureController.AssignPositionAndDirection(validWidth, validHeight);
         mainDirection = currentFurnitureController.GetCurrentVelocity().normalized;
         lateralDirection = FindLateralDirection(mainDirection);
 

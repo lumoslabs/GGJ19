@@ -71,19 +71,19 @@
     <Compile Include="Assets\GoogleVR\Editor\FmodGvrAudioRoomEditor.cs" />
     <Compile Include="Assets\ResonanceAudio\Editor\FmodResonanceAudioRoomEditor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -326,22 +326,22 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Assets/AirConsole/plugins/websocket-sharp.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Assets/AirConsole/plugins/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>/Users/steveh/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>/Users/hartste90/Documents/workspace/GGJ19/Magic Movers/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

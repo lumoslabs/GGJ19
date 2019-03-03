@@ -11,6 +11,7 @@ public class FurnitureAnimationController : MonoBehaviour
     private Animator am;
     public SpriteRenderer outline;
     public SpriteRenderer blorb;
+    public BoxCollider2D trashCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,11 @@ public class FurnitureAnimationController : MonoBehaviour
     public void PlayBreak()
     {
         am.SetTrigger("furn_break");
+        GetComponent<PolygonCollider2D>().isTrigger = true;
+        GetComponent<PolygonCollider2D>().enabled = false;
+        trashCollider.enabled = true;
+        trashCollider.tag = "Grass";
+        gameObject.tag = "Grass"; 
     }
 
     public void PlayPlace()

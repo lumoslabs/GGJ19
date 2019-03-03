@@ -131,7 +131,7 @@ namespace NDream.AirConsole.Editor {
 		}
 
 		public static string GetLocalAddress () {
-			return "10.11.18.32";
+			return "192.168.1.22";
 		}
 	}
 }

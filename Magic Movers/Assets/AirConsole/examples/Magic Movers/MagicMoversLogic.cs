@@ -14,6 +14,8 @@ public class MagicMoversLogic : MonoBehaviour {
     public WizardAnimatorController wiz1;
     public WizardAnimatorController wiz2;
 
+    public Transform leftBoundary, rightBoundary, topBoundary, bottomBoundary;
+
     public Camera camera;
     private AudioSource audio;
     private AudioClipHolder clipHolder;
@@ -44,6 +46,7 @@ public class MagicMoversLogic : MonoBehaviour {
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onDisconnect += OnDisconnect;
 
+        furnitureParentController.Init(leftBoundary.localPosition, rightBoundary.localPosition, topBoundary.localPosition, bottomBoundary.localPosition); 
         furnitureParentController.furniturePlacedCallback = FurniturePlacedCallback;
         furnitureParentController.furnitureCollidedCallback = HandleFurnitureCollisionCallback;
         furnitureParentController.furnitureExitCallback = HandleFurnitureExitCallback;
@@ -263,7 +266,7 @@ public class MagicMoversLogic : MonoBehaviour {
             }
             else
             {
-                wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[Random.Range(16, 26)];
+                wizardAudio.player2Audio.clip = wizardAudio.clips2.clips[Random.Range(16, 24)];
                 wizardAudio.player2Audio.loop = false;
                 wizardAudio.player2Audio.volume = 1;
                 wizardAudio.player2Audio.Play();
@@ -298,8 +301,16 @@ public class MagicMoversLogic : MonoBehaviour {
         inputEnabled = true;
     }
 
-    private void DestroyCurrentFurniture()
+    private void DestroyCurrentFurniture(bool destroyImmediate = false)
     {
+        if (destroyImmediate == false)
+        {
+            currentAggressor.GetComponent<FurnitureAnimationController>().PlayBreak();
+        }
+        else
+        {
+            Destroy(currentAggressor.gameObject);
+        }
         for (int i = 0; i < currentDefenders.Count; i++)
         {
             if ((currentDefenders[i] as GameObject).tag == "Furniture") 
@@ -307,15 +318,13 @@ public class MagicMoversLogic : MonoBehaviour {
                 GameObject item = currentDefenders[i] as GameObject;
                 //that object plays break animation
                 item.GetComponent<FurnitureAnimationController>().PlayBreak();
+
                 //turns tag to "grass"
                 item.tag = "Grass";
                 //Destroy(currentDefenders[i] as GameObject);
             }
         }
         //Destroy(currentAggressor);
-
-        currentAggressor.GetComponent<FurnitureAnimationController>().PlayBreak();
-
 
         currentDefenders.Clear();
         currentAggressor = null;
@@ -369,14 +378,14 @@ public class MagicMoversLogic : MonoBehaviour {
         wiz2.PlayLose();
 
         //enable input after a short timeout
-        StartCoroutine(AddFurnitureAfterDelay());
+        StartCoroutine(EnableInputAfterDelay());
     }
 
     void HandleFurnitureCollisionCallback(GameObject defender, GameObject aggressor)
     {
         if (defender.tag == "Boundary")
         {
-            DestroyCurrentFurniture();
+            DestroyCurrentFurniture(true);
         }
         else
         {
@@ -393,7 +402,7 @@ public class MagicMoversLogic : MonoBehaviour {
     void StartGame () {
         gameStarted = true;
 		AirConsole.instance.SetActivePlayers (2);
-        AddFurniture();
+        StartCoroutine(AddFurnitureAfterDelay());
 		UpdateScoreUI ();
         strikeController.gameObject.SetActive(true);
         wiz1.PlayWalk();
